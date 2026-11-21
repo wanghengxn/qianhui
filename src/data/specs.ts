@@ -43,7 +43,7 @@ export const HOME_SPECS: SpecRow[] = [
     sizes: '120 / 150 / 180 × 200 cm',
     spec: 'Polyester face and fill, four-corner elastic',
   },
-  { item: 'Bathrobes', sizes: '1200 g', spec: '100% cotton, 16s cut pile, kimono collar' },
+  { item: 'Bathrobes', sizes: 'About 1,200 g per robe', spec: '100% cotton, 16s cut pile, kimono collar' },
   { item: 'Disposable slippers', sizes: 'Four faces', spec: 'Terry, waffle, coral fleece, dense velvet' },
 ];
 
@@ -104,7 +104,7 @@ export const PROTECTOR_SPECS: SpecRow[] = [
 ];
 
 export const BATHROBE_SPECS: SpecRow[] = [
-  { item: 'Hotel bathrobe', sizes: '1200 g', spec: '100% cotton, 16s cut pile' },
+  { item: 'Hotel bathrobe', sizes: 'About 1,200 g per robe', spec: '100% cotton, 16s cut pile' },
   { item: 'Collar', sizes: '—', spec: 'Kimono' },
 ];
 
@@ -124,6 +124,6 @@ export const DUVET_SPECS: SpecRow[] = [
 
 export const PILLOWCASE_SPECS: SpecRow[] = [
   { item: 'Pillowcase', sizes: '58 × 85 cm', spec: 'Cotton, cut to match the sheet line' },
-  { item: 'Pillowcase', sizes: '58 × 85 cm', spec: 'Mercerized satin' },
+  { item: 'Pillowcase', sizes: '58 × 85 cm', spec: 'Mercerized cotton sateen' },
   { item: 'Pillowcase', sizes: '58 × 85 cm', spec: 'Jacquard' },
 ];
