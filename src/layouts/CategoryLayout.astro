@@ -1,0 +1,97 @@
+---
+/**
+ * 类目页壳（plan.md §5.1 右列，400–800 词 + 规格表）
+ *
+ * 三条硬约束，改这个文件时不要破坏：
+ *   1. IntentFilter 必须在 H1 正下方
+ *   2. 页面不出现单件零售价
+ *   3. 不输出 Product / Offer 结构化数据
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import IntentFilter from '@/components/IntentFilter.astro';
+import ProductGallery from '@/components/ProductGallery.astro';
+import SpecTable from '@/components/SpecTable.astro';
+import type { SpecRow } from '@/data/specs';
+import { breadcrumbSchema } from '@/lib/schema';
+
+interface Props {
+  title: string;
+  h1: string;
+  description?: string;
+  breadcrumb: string;
+  specs: SpecRow[];
+  specLead?: string;
+  /** 图片文件名（不含 .jpg），见 src/data/images.ts */
+  images?: string[];
+  moq?: string;
+  /** 有对应供应商页时填 */
+  supplierHref?: string;
+  supplierLabel?: string;
+}
+
+const {
+  title,
+  h1,
+  description,
+  breadcrumb,
+  specs,
+  specLead,
+  images = [],
+  moq,
+  supplierHref,
+  supplierLabel,
+} = Astro.props;
+
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: breadcrumb, path: Astro.url.pathname },
+];
+---
+
+<BaseLayout title={title} description={description} jsonld={[breadcrumbSchema(crumbs)]}>
+  <div class="container-page py-8">
+    <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: breadcrumb }]} />
+  </div>
+
+  <section class="container-page pb-6">
+    <h1 class="max-w-3xl text-3xl font-semibold tracking-tight sm:text-4xl">{h1}</h1>
+    <div class="mt-4">
+      <IntentFilter moq={moq} />
+    </div>
+  </section>
+
+  <section class="container-page py-6">
+    <div class="max-w-3xl space-y-5 leading-relaxed text-ink-600">
+      <slot />
+    </div>
+  </section>
+
+  {images.length > 0 && <section class="container-page py-6"><ProductGallery images={images} /></section>}
+
+  <section class="container-page py-8">
+    <h2 class="text-xl font-semibold">Specifications</h2>
+    {specLead && <p class="mt-2 max-w-2xl text-sm text-ink-600">{specLead}</p>}
+    <div class="mt-5">
+      <SpecTable rows={specs} />
+    </div>
+  </section>
+
+  <section class="container-page py-8">
+    <div class="rounded-lg border border-line bg-surface p-6">
+      <p class="text-sm text-ink-600">Need custom specs, MOQ or samples?</p>
+      <div class="mt-3 flex flex-wrap gap-3">
+        {
+          supplierHref && supplierLabel && (
+            <a href={supplierHref} class="rounded-md border border-line bg-white px-4 py-2.5 text-sm font-semibold">
+              {supplierLabel}
+            </a>
+          )
+        }
+        <a href="/request-a-quote/" class="rounded-md bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white">
+          Request a quote
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

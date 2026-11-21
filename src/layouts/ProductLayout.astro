@@ -1,0 +1,67 @@
+---
+/**
+ * 普通产品页壳。
+ * 这类页面只承接"看货 + 询盘"，不做 SEO 投入 —— 对应关键词 SERP 前 10 的
+ * B2B 席位是 0–1，做优化只会引来零售客（plan.md §4.2 / §5）。
+ * 因此同样不输出 Product / Offer 结构化数据。
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import ProductGallery from '@/components/ProductGallery.astro';
+import SpecTable from '@/components/SpecTable.astro';
+import type { SpecRow } from '@/data/specs';
+import { breadcrumbSchema } from '@/lib/schema';
+
+interface Props {
+  title: string;
+  h1: string;
+  breadcrumb: string;
+  description?: string;
+  specs: SpecRow[];
+  specLead?: string;
+  /** 图片文件名（不含 .jpg），见 src/data/images.ts */
+  images?: string[];
+}
+
+const { title, h1, breadcrumb, description, specs, specLead, images = [] } = Astro.props;
+
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Products', path: '/products/' },
+  { name: breadcrumb, path: Astro.url.pathname },
+];
+---
+
+<BaseLayout title={title} description={description} jsonld={[breadcrumbSchema(crumbs)]}>
+  <div class="container-page py-8">
+    <Breadcrumbs
+      items={[{ name: 'Home', href: '/' }, { name: 'Products', href: '/products/' }, { name: breadcrumb }]}
+    />
+  </div>
+
+  <section class="container-page pb-6">
+    <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">{h1}</h1>
+  </section>
+
+  <section class="container-page py-6">
+    <div class="max-w-3xl space-y-5 leading-relaxed text-ink-600">
+      <slot />
+    </div>
+  </section>
+
+  {images.length > 0 && <section class="container-page py-6"><ProductGallery images={images} /></section>}
+
+  <section class="container-page py-6">
+    <h2 class="text-xl font-semibold">Specifications</h2>
+    {specLead && <p class="mt-2 max-w-2xl text-sm text-ink-600">{specLead}</p>}
+    <div class="mt-5">
+      <SpecTable rows={specs} />
+    </div>
+  </section>
+
+  <section class="container-page py-8">
+    <a href="/request-a-quote/" class="rounded-md bg-brand-600 px-5 py-3 text-sm font-semibold text-white">
+      Request a quote
+    </a>
+  </section>
+</BaseLayout>

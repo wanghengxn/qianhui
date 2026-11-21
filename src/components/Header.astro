@@ -1,0 +1,101 @@
+---
+import { NAV, SITE } from '@/config/site';
+---
+
+<header class="sticky top-0 z-40 border-b border-line bg-white/95 backdrop-blur">
+  <div class="container-page flex items-center justify-between gap-6 py-4">
+    <a href="/" class="text-lg font-semibold tracking-tight text-ink-900">
+      {SITE.name}
+    </a>
+
+    {/* 桌面端导航：纯 CSS，无 JS */}
+    <nav class="hidden lg:block" aria-label="Primary">
+      <ul class="flex items-center gap-1">
+        {
+          NAV.map((group) =>
+            group.href ? (
+              <li>
+                <a
+                  href={group.href}
+                  class="block rounded px-3 py-2 text-sm font-medium text-ink-600 hover:text-ink-900"
+                >
+                  {group.label}
+                </a>
+              </li>
+            ) : (
+              <li class="group relative">
+                <button
+                  type="button"
+                  class="flex items-center gap-1 rounded px-3 py-2 text-sm font-medium text-ink-600 hover:text-ink-900"
+                >
+                  {group.label}
+                  <svg class="size-3 opacity-60" viewBox="0 0 12 12" aria-hidden="true">
+                    <path d="M2 4.5 6 8.5 10 4.5" fill="none" stroke="currentColor" stroke-width="1.5" />
+                  </svg>
+                </button>
+                <ul class="invisible absolute left-0 top-full z-50 min-w-56 translate-y-1 rounded-lg border border-line bg-white p-2 opacity-0 shadow-lg transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                  {group.items.map((item) => (
+                    <li>
+                      <a
+                        href={item.href}
+                        class="block rounded px-3 py-2 text-sm text-ink-600 hover:bg-surface hover:text-ink-900"
+                      >
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            )
+          )
+        }
+      </ul>
+    </nav>
+
+    <div class="hidden items-center gap-3 lg:flex">
+      <a
+        href="/request-a-quote/"
+        class="rounded-md bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:opacity-90"
+      >
+        Request a Quote
+      </a>
+    </div>
+
+    {/* 移动端菜单 */}
+    <details class="lg:hidden">
+      <summary class="cursor-pointer list-none rounded border border-line px-3 py-2 text-sm font-medium">
+        Menu
+      </summary>
+      <nav class="absolute inset-x-0 top-full max-h-[75vh] overflow-y-auto border-b border-line bg-white p-4">
+        {NAV.map((group) =>
+          group.href ? (
+            <a href={group.href} class="block rounded px-1 py-2 text-sm font-semibold text-ink-900">
+              {group.label}
+            </a>
+          ) : (
+            <div class="mb-4">
+              <p class="mb-1 px-1 text-xs font-semibold uppercase tracking-wide text-ink-600">
+                {group.label}
+              </p>
+              <ul>
+                {group.items.map((item) => (
+                  <li>
+                    <a href={item.href} class="block rounded px-1 py-2 text-sm text-ink-900">
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )
+        )}
+        <a
+          href="/request-a-quote/"
+          class="block rounded-md bg-brand-600 px-4 py-3 text-center text-sm font-semibold text-white"
+        >
+          Request a Quote
+        </a>
+      </nav>
+    </details>
+  </div>
+</header>

@@ -1,0 +1,35 @@
+---
+import ProductLayout from '@/layouts/ProductLayout.astro';
+import { PILLOWCASE_SPECS } from '@/data/specs';
+import { pageTitle } from '@/lib/seo';
+---
+
+<ProductLayout
+  title={pageTitle('Hotel Pillowcases')}
+  description="Hotel pillowcases in cotton, mercerized satin and jacquard, 58 × 85 cm, cut to match the sheet line. Wholesale."
+  h1="Hotel pillowcases"
+  breadcrumb="Pillowcases"
+  specs={PILLOWCASE_SPECS}
+  images={['products-pillowcases-hero', 'products-pillowcases-detail']}
+>
+  <p>
+    Pillowcases are 58 × 85 cm and cut from the same cloth as the sheets they ship with. Ordering
+    them together is the only way to guarantee the whites match after a year of laundering, since
+    dye lots drift even in the same construction.
+  </p>
+  <p>
+    Plain cotton for standard rooms, mercerized satin for suites, jacquard where the bedding
+    pattern has to run through the pillow. The housekeeping that replaces pillowcases most often
+    is usually the plain one.
+  </p>
+  <p>
+    Housekeeping style matters here too: envelope closure or open end. Tell us which the property
+    uses and we will cut to it.
+  </p>
+  <p>
+    Cloth, thread counts and supply terms are on the
+    <a class="font-semibold underline" href="/hotel-bedding-supplier/">hotel bedding supplier</a>
+    page; the sheet and duvet range is on
+    <a class="font-semibold underline" href="/hotel-linens/">hotel linens</a>.
+  </p>
+</ProductLayout>

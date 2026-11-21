@@ -1,0 +1,184 @@
+---
+/**
+ * plan.md §8.2：这个页面是「指南 + 自证」合体。
+ * 写作口径必须是 `tested to 16 CFR 1633`，不是 `1633 compliant`。
+ * 报告原件未到位前不要发布任何合规宣称。
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import { pageTitle } from '@/lib/seo';
+import { breadcrumbSchema } from '@/lib/schema';
+
+const title = pageTitle('16 CFR 1633 Hotel Mattress Compliance');
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Guides', path: '/guides/' },
+  { name: '16 CFR 1633 hotel mattress', path: '/guides/16-cfr-1633-hotel-mattress/' },
+];
+---
+
+<BaseLayout
+  title={title}
+  description="What 16 CFR 1633 requires of a hotel mattress, how prototype testing works, and which documents a buyer should ask for before signing."
+  jsonld={[breadcrumbSchema(crumbs)]}
+>
+  <div class="container-page py-8">
+    <Breadcrumbs
+      items={[{ name: 'Home', href: '/' }, { name: 'Guides', href: '/guides/' }, { name: '16 CFR 1633' }]}
+    />
+  </div>
+
+  <article class="container-page max-w-3xl pb-16">
+    <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">
+      16 CFR 1633 hotel mattress compliance
+    </h1>
+
+    <div class="mt-8 space-y-5 leading-relaxed text-ink-600">
+      <p>
+        If you are buying mattresses for a US hotel, the spec sheet will contain the phrase
+        16 CFR 1633, and the person who put it there will probably not explain it. Short version:
+        it is the federal open-flame standard for mattress sets sold in the United States. It has
+        been in force since 2007, and a mattress that has not been qualified against it cannot
+        legally be sold there.
+      </p>
+
+      <h2 class="pt-6 text-xl font-semibold text-ink-900">What the test measures</h2>
+      <p>
+        The test method is CPSC's TB 129. A burner is applied to the side of a mattress set and
+        the lab records how much heat the assembly releases. Two limits apply, both measured in
+        the first ten minutes:
+      </p>
+      <ul class="list-disc space-y-1 pl-5">
+        <li>Peak heat release rate no higher than 200 kW</li>
+        <li>Total heat release no higher than 25 MJ</li>
+      </ul>
+      <p>
+        Those are the numbers the fire barrier is designed around. A barrier that slows ignition
+        but keeps releasing heat will fail on the second figure even if the first one looks fine.
+      </p>
+
+      <h2 class="pt-6 text-xl font-semibold text-ink-900">Prototype testing, and why it matters to a buyer</h2>
+      <p>
+        Manufacturers do not test every mattress. They test a prototype, meaning one specific
+        construction: a defined core, a defined foam, a defined barrier. Production units are then
+        qualified by similarity to that prototype.
+      </p>
+      <p>
+        This is the part buyers miss. A report on file does not automatically cover the mattress
+        on your purchase order. It covers the build that was tested. If the supplier changed the
+        foam density, the barrier weight, or the spring unit after the test, the report may no
+        longer apply to what is being shipped.
+      </p>
+      <p>
+        So the useful question is not "do you have a 1633 report". It is "does the mattress I am
+        ordering fall inside the prototype that report covers". Ask for the prototype description
+        and compare it to the specification. A supplier who cannot answer that has not thought
+        about it.
+      </p>
+
+      <h2 class="pt-6 text-xl font-semibold text-ink-900">Widths and depths</h2>
+      <p>
+        A tested prototype covers a range of sizes, not every size in the catalogue. When you
+        review a report, check the widths and depths it lists against your order. A 180 cm king
+        and a 110 cm single are different assemblies even when the build is the same on paper.
+      </p>
+
+      <h2 class="pt-6 text-xl font-semibold text-ink-900">Who carries the obligation</h2>
+      <p>
+        In practice the US importer or the seller carries the liability, which is why they ask
+        foreign suppliers for paperwork rather than a statement of intent. CPSC can stop goods at
+        the border, and a non-compliant mattress found in a property is a problem for the party
+        that sold it.
+      </p>
+      <p>
+        Each mattress also carries a permanent label stating compliance with Part 1633. That
+        label is not decoration. If the document trail is weak, the label is the thing an
+        inspector reads first.
+      </p>
+
+      <h2 class="pt-6 text-xl font-semibold text-ink-900">The other standard: 16 CFR 1632</h2>
+      <p>
+        1633 covers open flame. 16 CFR 1632 covers cigarette ignition, and it applies to
+        mattresses and mattress pads rather than mattress sets. It is a separate test (TB 106) and
+        a separate report.
+      </p>
+      <p>
+        If your order includes mattress protectors or pads, ask about 1632 as well. A 1633 report
+        does not cover them.
+      </p>
+
+      <h2 class="pt-6 text-xl font-semibold text-ink-900">Three ways to word a claim</h2>
+      <p>
+        Suppliers describe fire performance in ways that sound similar and are not. It helps to
+        know which one you are reading.
+      </p>
+      <div class="overflow-x-auto pt-2">
+        <table class="w-full min-w-[34rem] border-collapse text-sm">
+          <thead>
+            <tr class="border-b border-line text-left text-xs uppercase tracking-wide text-ink-600">
+              <th scope="col" class="py-3 pr-4 font-semibold">Wording</th>
+              <th scope="col" class="py-3 pr-4 font-semibold">What it means</th>
+              <th scope="col" class="py-3 font-semibold">What it needs</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-line align-top">
+              <td class="py-3 pr-4 font-medium text-ink-900">"Fire-retardant materials"</td>
+              <td class="py-3 pr-4 text-ink-600">A description of what is inside</td>
+              <td class="py-3 text-ink-600">Nothing. It is not a compliance claim</td>
+            </tr>
+            <tr class="border-b border-line align-top">
+              <td class="py-3 pr-4 font-medium text-ink-900">"Tested to 16 CFR 1633"</td>
+              <td class="py-3 pr-4 text-ink-600">A test happened on a defined prototype</td>
+              <td class="py-3 text-ink-600">The report itself</td>
+            </tr>
+            <tr class="border-b border-line align-top">
+              <td class="py-3 pr-4 font-medium text-ink-900">"16 CFR 1633 compliant"</td>
+              <td class="py-3 pr-4 text-ink-600">A legal conclusion about this product</td>
+              <td class="py-3 text-ink-600">Evidence that this SKU sits inside a tested prototype</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        The middle one is the safest claim a supplier can make and the easiest to verify. The
+        third is not dishonest, but it needs the SKU comparison behind it. A supplier who uses
+        the third wording and cannot produce the second is worth a follow-up question.
+      </p>
+
+      <h2 class="pt-6 text-xl font-semibold text-ink-900">Checklist for a buyer</h2>
+      <ol class="list-decimal space-y-2 pl-5">
+        <li>The test report, with the laboratory's name and ID.</li>
+        <li>The prototype description: core, foam, barrier, and the sizes covered.</li>
+        <li>A comparison showing your ordered widths and depths inside that prototype.</li>
+        <li>A 1632 report if the order includes pads or mattress protectors.</li>
+        <li>Confirmation that the build has not changed since the test date.</li>
+      </ol>
+
+      <h2 class="pt-6 text-xl font-semibold text-ink-900">What we can supply</h2>
+      <p>
+        Our mattress barrier is 220 g fire-retardant cotton and 90 g fire-retardant foam over the
+        pocket-spring unit, and the build is tested to 16 CFR 1633 at SGS Shunde, report
+        SDFTS25002706R05_EN. Ask for it with your quote. Note what the report does and does not
+        say: one prototype, tested at 99 × 191 × 25 cm without a foundation, with no size range
+        stated. For other sizes we ask the manufacturer to confirm coverage in writing before
+        quoting, rather than send a PDF and leave you to work it out.
+      </p>
+      <p>
+        If the project is outside the US, tell us which standard applies. BS 7177 and EN 597 are
+        different tests and a US report says nothing about them.
+      </p>
+    </div>
+
+    <div class="mt-10 rounded-lg border border-line bg-surface p-6">
+      <h2 class="text-lg font-semibold">Test report available on request</h2>
+      <p class="mt-2 text-sm text-ink-600">
+        Wholesale inquiries only. Send the widths, depths and destination and we will reply with
+        the report and the prototype comparison.
+      </p>
+      <a href="/request-a-quote/" class="mt-4 inline-block rounded-md bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white">
+        Request the test report
+      </a>
+    </div>
+  </article>
+</BaseLayout>

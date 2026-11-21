@@ -1,0 +1,150 @@
+---
+import SupplierLayout from '@/layouts/SupplierLayout.astro';
+import { MATTRESS_SPECS } from '@/data/specs';
+import { supplierTitle } from '@/lib/seo';
+
+const title = supplierTitle('Mattress');
+const terms = [
+  { label: 'Minimum order', value: '50 pieces per style. Sizes can be mixed in one order.' },
+  { label: 'Firmness', value: 'Medium firm as standard. Softer or firmer is a comfort-layer change, not a spring change.' },
+  { label: 'Sampling', value: 'One sample per build. Confirm the surface feel before bulk runs.' },
+  { label: 'Lead time', value: 'Quoted per order. Spring units and cut fabric are scheduled separately.' },
+  { label: 'Sizes', value: '110 / 120 / 150 / 180 × 200 cm as standard. US, UK and AU bed sizes cut on request.' },
+  { label: 'Payment', value: 'Terms come with the quotation and depend on order value and destination.' },
+];
+---
+
+<SupplierLayout
+  title={title}
+  description="Hotel mattresses built to your brief: pocket spring, double-sided and topper builds, 110 to 180 cm wide, tested to 16 CFR 1633. MOQ 50 pcs."
+  h1="Hotel mattress supplier & custom manufacturer"
+  breadcrumb="Hotel Mattress Supplier"
+  serviceName="Hotel mattress supply and manufacturing"
+  serviceType="Hotel mattress supply and manufacturing"
+  specs={MATTRESS_SPECS}
+  images={['hotel-mattress-supplier-hero']}
+  specLead="Spring unit and fire barrier are the same across widths. What changes with size is the coil count and the cutting plan."
+  terms={terms}
+  categoryHref="/hotel-mattress-protectors/"
+  categoryLabel="Mattress protectors"
+>
+  <p>
+    Hotel mattresses are bought to a brief, not to a preference. A project has bed widths, a
+    deck height, a budget per room and a fire standard to meet before anyone talks about how the
+    bed feels. We have them built to that brief and ship FOB or CIF, whichever suits your
+    forwarder.
+  </p>
+  <p>
+    We make the bed linen, towels and bathrobes at our own plant in Jimo. Mattresses come from specialist
+    mattress factories we buy from to our specification, and the flame-retardant barrier comes
+    from a nonwoven mill that supplies the same barrier to those factories. The test reports are
+    issued to those plants. What you get from us is one order, one contract and one point of
+    contact for claims, with the reports and prototype description that match the order.
+  </p>
+  <p>
+    The buyers we work with are usually procurement teams, project contractors and distributors
+    furnishing a floor at a time. Single-mattress orders are not what this line is set up for.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">Four builds</h2>
+  <p>
+    Pocket spring is the base. Coils sit in individual fabric pockets, so weight stays under the
+    sleeper instead of spreading across the bed. We use 1.9 mm wire on the narrower widths and
+    2.0 mm where the span is wider.
+  </p>
+  <p>
+    Independent spring is the same idea with individually pocketed coils. On a double or king,
+    one person turning over does not move the other side of the mattress. For a property that
+    gets complaints about partner disturbance, this is the build that answers it.
+  </p>
+  <p>
+    Double-sided means the same construction on both faces. If your housekeeping schedule turns
+    mattresses rather than replacing them, say so at inquiry — the build has to survive being
+    flipped on a regular cycle, and that changes what goes inside.
+  </p>
+  <p>
+    Mattress with topper puts a separate comfort layer over the spring unit. Projects that want
+    a softer surface without replacing the core tend to land here. Our price list lists this one
+    under its own model name, which translates awkwardly; ask for the topper build and we will
+    know what you mean.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">Sizes and depth</h2>
+  <p>
+    Standard widths are 110, 120, 150 and 180 cm, all 200 cm long, in 20, 25 or 30 cm depth.
+    That covers single, small double, double and king in most of Europe and Asia.
+  </p>
+  <p>
+    US queen is 60 × 80 in and king is 76 × 80 in. Those are not a straight conversion from the
+    metric widths, so they get their own cutting plan. If your drawings are in inches, send them
+    in inches. Converting twice is where mistakes come from.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">Firmness</h2>
+  <p>
+    Medium firm is the default, and it is what most hotel briefs ask for. If a project specifies
+    softer or firmer, we change the comfort layers, not the spring unit. That keeps the support
+    characteristics stable while the surface feel moves.
+  </p>
+  <p>
+    What we cannot do is match another manufacturer's firmness by name. "Medium" is not a
+    standard. Send us the mattress the project is replacing, or a sample from the specifier, and
+    we will match it by feel.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">Fire compliance</h2>
+  <p>
+    For US projects the standard is 16 CFR 1633, and it is not optional. Our barrier is 220 g
+    fire-retardant cotton and 90 g fire-retardant foam over the spring unit. The build has been
+    tested to that standard at SGS Shunde, report SDFTS25002706R05_EN. Three specimens passed
+    open-flame testing without a foundation. The report comes with your quote.
+  </p>
+  <p>
+    Tested to and compliant are different words, and buyers should know the difference. The
+    test covers a prototype, and that report was run on one size: 99 × 191 × 25 cm. It does not
+    state a size range. For any other size we ask the manufacturer to confirm in writing that
+    the build falls inside the tested prototype before we quote. A report with no size does not
+    cover an order.
+  </p>
+  <p>
+    The sets are produced in China to that build. Under 16 CFR 1633 the importer keeps the
+    report, the prototype description and a certification on file; on FOB or CIF terms that
+    importer is normally you or your broker, not us. Every US order ships with the report and a
+    signed factory statement that the build follows the tested prototype. If your compliance
+    team has its own template for that statement, send it and we will have it signed before
+    production.
+  </p>
+  <p>
+    US, UK and EU standards are not interchangeable. A 1633 test says nothing about BS 7177 or
+    EN 597. If the project is outside the US, tell us the standard at inquiry stage. Better to
+    know early.
+  </p>
+  <p>
+    What the standard actually tests, and what a passing report does and does not cover, is set
+    out in
+    <a class="font-semibold underline" href="/guides/16-cfr-1633-hotel-mattress/">
+      16 CFR 1633 for hotel mattresses
+    </a>.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">Shipping a mattress order</h2>
+  <p>
+    Mattresses compress and roll for container freight. That changes the packing plan, not the
+    finished dimensions — once opened, the mattress recovers to the spec on the drawing. Tell us
+    if the property needs them delivered flat and stored before installation; rolled units need
+    a recovery window and that has to fit the installation schedule.
+  </p>
+  <p>
+    Mattress protectors usually go out with the same order. Same container, same delivery
+    window, and the property is not left wrapping mattresses in plastic for a month.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">What to send</h2>
+  <ul class="list-disc space-y-2 pl-5">
+    <li>Bed widths and depths, per room type, and the count of each.</li>
+    <li>Build: pocket spring, independent spring, double-sided, or with topper.</li>
+    <li>Firmness target, or the mattress being replaced.</li>
+    <li>Fire standard, and the country the goods are going to.</li>
+    <li>Delivery month and destination port.</li>
+  </ul>
+</SupplierLayout>

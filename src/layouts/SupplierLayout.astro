@@ -1,0 +1,122 @@
+---
+/**
+ * 供应商页壳（plan.md §5.1 左列，1200–1800 词）
+ * 前 40% 写采购场景：房型、MOQ、打样、交期、认证、付款。
+ * 这里不做意图过滤 —— 会主动搜 "supplier" 的人本来就是 B 端。
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import ProductGallery from '@/components/ProductGallery.astro';
+import QuoteForm from '@/components/QuoteForm.astro';
+import SpecTable from '@/components/SpecTable.astro';
+import type { SpecRow } from '@/data/specs';
+import { absUrl } from '@/config/site';
+import { breadcrumbSchema, serviceSchema } from '@/lib/schema';
+
+interface Props {
+  title: string;
+  h1: string;
+  description?: string;
+  breadcrumb: string;
+  serviceName: string;
+  /** Service.serviceType，按本页实际供应的品类写 */
+  serviceType: string;
+  specs: SpecRow[];
+  specLead?: string;
+  /** 图片文件名（不含 .jpg），见 src/data/images.ts */
+  images?: string[];
+  terms?: { label: string; value: string }[];
+  categoryHref: string;
+  categoryLabel: string;
+}
+
+const {
+  title,
+  h1,
+  description,
+  breadcrumb,
+  serviceName,
+  serviceType,
+  specs,
+  specLead,
+  images = [],
+  terms = [],
+  categoryHref,
+  categoryLabel,
+} = Astro.props;
+
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: breadcrumb, path: Astro.url.pathname },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  jsonld={[
+    serviceSchema({
+      name: serviceName,
+      serviceType,
+      description,
+      url: absUrl(Astro.url.pathname),
+    }),
+    breadcrumbSchema(crumbs),
+  ]}
+>
+  <div class="container-page py-8">
+    <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: breadcrumb }]} />
+  </div>
+
+  <section class="container-page pb-6">
+    <h1 class="max-w-3xl text-3xl font-semibold tracking-tight sm:text-4xl">{h1}</h1>
+  </section>
+
+  <section class="container-page py-6">
+    <div class="max-w-3xl space-y-5 leading-relaxed text-ink-600">
+      <slot />
+    </div>
+  </section>
+
+  {images.length > 0 && <section class="container-page py-6"><ProductGallery images={images} /></section>}
+
+  {
+    terms.length > 0 && (
+      <section class="container-page py-6">
+        <h2 class="text-xl font-semibold">Supply terms</h2>
+        <dl class="mt-4 grid gap-x-8 gap-y-4 sm:grid-cols-2">
+          {terms.map((t) => (
+            <div class="border-t border-line pt-3">
+              <dt class="text-sm font-medium text-ink-900">{t.label}</dt>
+              <dd class="mt-1 text-sm text-ink-600">{t.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+    )
+  }
+
+  <section class="container-page py-6">
+    <h2 class="text-xl font-semibold">Specifications</h2>
+    {specLead && <p class="mt-2 max-w-2xl text-sm text-ink-600">{specLead}</p>}
+    <div class="mt-5">
+      <SpecTable rows={specs} />
+    </div>
+  </section>
+
+  <section class="container-page py-6">
+    <div class="rounded-lg border border-line bg-surface p-6">
+      <p class="text-sm text-ink-600">Browse the full range</p>
+      <a href={categoryHref} class="mt-2 inline-block text-sm font-semibold underline">
+        {categoryLabel}
+      </a>
+    </div>
+  </section>
+
+  <section id="quote" class="container-page py-10">
+    <h2 class="text-xl font-semibold">Request a quote</h2>
+    <div class="mt-4 max-w-3xl">
+      <QuoteForm />
+    </div>
+  </section>
+</BaseLayout>

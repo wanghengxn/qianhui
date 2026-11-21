@@ -1,0 +1,153 @@
+---
+import SupplierLayout from '@/layouts/SupplierLayout.astro';
+import { TOWEL_SPECS } from '@/data/specs';
+import { supplierTitle } from '@/lib/seo';
+
+const title = supplierTitle('Towel');
+const terms = [
+  { label: 'Minimum order', value: '50 pieces per style. Mixed sizes are quoted separately and shipped together.' },
+  { label: 'Sizes', value: '80 × 160 cm bath, 35 × 75 cm face, 35 × 35 cm hand and 50 × 80 cm bath mat as standard. Other sizes cut to order.' },
+  { label: 'Sampling', value: 'A sample goes out before bulk. The sample cost and lead time are confirmed on the quotation.' },
+  { label: 'Lead time', value: 'Quoted per order, after the sample is approved.' },
+  { label: 'Payment', value: 'Terms come with the quotation and depend on order value and destination.' },
+  { label: 'Documents', value: 'Commercial invoice, packing list, bill of lading. Certificates where the project needs them.' },
+];
+---
+
+<SupplierLayout
+  title={title}
+  description="Hotel towel supplier for bath, face and hand towels and cotton bath mats, 100% cotton, 490 to 1000 GSM. Wholesale, MOQ 50 pcs."
+  h1="Hotel towel supplier & wholesale manufacturer"
+  breadcrumb="Hotel Towel Supplier"
+  serviceName="Hotel towel supply and manufacturing"
+  serviceType="Hotel towel supply and manufacturing: bath, face and hand towels and cotton bath mats"
+  specs={TOWEL_SPECS}
+  images={['towel1', 'hotel-towels-hero']}
+  specLead="GSM is calculated from finished size and weight. Both are listed so a buyer can check the number rather than take it."
+  terms={terms}
+  categoryHref="/hotel-towels/"
+  categoryLabel="Hotel towels range"
+>
+  <p>
+    We make hotel towels at our plant in Jimo, Qingdao: bath, face and hand towels and the
+    cotton bath mat. All four are 100% cotton. Trade accounts only, 50 pieces per style.
+  </p>
+  <p>
+    The people who ask us for a quote are usually in one of three positions. A hotel is
+    replacing a programme that has worn out. A distributor needs a price and a repeatable
+    spec. A contractor is furnishing a floor and has a delivery date. The questions below are
+    the ones we can answer before a sample leaves the plant.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">The range and the numbers behind it</h2>
+  <p>
+    The bath towel is 80 × 160 cm at 800 g, which works out to about 625 GSM. The face towel
+    is 35 × 75 cm at 150 g, about 571 GSM. The hand towel is 35 × 35 cm at 60 g, about
+    490 GSM. The bath mat is 50 × 80 cm at 400 g, 1000 GSM.
+  </p>
+  <p>
+    Those four are the standard sizes. Bath sheets, smaller gym towels and wrapped amenity
+    sets are cut to order. Send the finished size you want, not the nominal one. Shrinkage is
+    part of the cutting plan, and a towel cut to the nominal figure can finish smaller than
+    the one in the room now.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">GSM is the number to check</h2>
+  <p>
+    GSM is grams per square metre, so it depends on both weight and size. Take the same 800 g
+    towel in two sizes: at 70 × 140 cm it is about 816 GSM, at 80 × 160 cm it is about 625.
+    Same weight, different cloth.
+  </p>
+  <p>
+    A supplier quoting an "800 g bath towel" has not told you the GSM. One quoting a GSM
+    without a finished size has not told you the weight. Ask for both, then divide the weight
+    by the area in square metres and check the answer yourself. It takes a calculator and ten
+    seconds.
+  </p>
+  <p>
+    Our numbers are calculated from the finished size and weight in the table below. If a
+    supplier will not say how theirs were measured, assume the figure flatters the product.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">Questions worth putting to any towel supplier</h2>
+  <p>
+    The list below is what a towel order turns on. Ask for the answers in writing, not in a
+    sales call.
+  </p>
+  <ul class="list-disc space-y-2 pl-5">
+    <li>Finished size in centimetres and weight in grams, for every size quoted.</li>
+    <li>The GSM calculated from those two numbers.</li>
+    <li>Whether the GSM is measured on the greige towel, the finished towel, or after washing.</li>
+    <li>Pile construction and yarn number, if the supplier will state them.</li>
+    <li>Border: woven into the towel or sewn on, and the border width.</li>
+    <li>Shrinkage allowance built into the cut plan.</li>
+    <li>Bleach tolerance, if your laundry uses oxygen bleach.</li>
+    <li>Carton count, carton size and cube per size.</li>
+    <li>Care label language, fibre content, and where the property logo goes.</li>
+  </ul>
+  <p>
+    A supplier who answers all of these is quoting a product. One who answers the first two
+    is quoting a catalogue page.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">Where towel programmes fail</h2>
+  <p>
+    Hems and borders go first. A towel can still look white while the border is worn through,
+    and housekeeping will pull it from the room before the body of the towel has failed. Ask
+    how the border is attached, and check the seam on the sample with both hands.
+  </p>
+  <p>
+    Par levels decide the replacement rate as much as GSM does. A property holding a thin
+    stock washes the same towels harder and replaces them sooner. When you build the budget,
+    count wash cycles per year and replacement rate, not just the opening order.
+  </p>
+  <p>
+    Colour is the other quiet cost. White is standard. Any other shade is a dye run with its
+    own minimum, and a shade matched to a brand standard needs a sample approved before the
+    run starts.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">Borders, logos and packing</h2>
+  <p>
+    A dobby border is woven into the towel and stays there. A sewn-on band is a separate
+    operation; look at how it is attached and at the stitch density before you approve it.
+    On a white towel the border is also the only visual detail a guest sees, so a poor one
+    shows up in the room.
+  </p>
+  <p>
+    Logos can be woven labels or embroidery. Embroidery sits down in the pile and reads less
+    crisply than it does on a sheet, which is why most hotel programmes use a woven end label.
+    Send the artwork, the placement and the colour count, and we will say what holds at the
+    size you specify.
+  </p>
+  <p>
+    Packing changes freight. Individual polybags, pairs, or bulk in the carton all fit in a
+    container differently, and carton cube belongs in the quote. We do not do retail
+    packaging.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">What we need to quote</h2>
+  <ul class="list-disc space-y-2 pl-5">
+    <li>Sizes and quantity per size, not just a total.</li>
+    <li>GSM, or the towel you are replacing, so we can match by feel and by number.</li>
+    <li>Colour, and logo artwork if the programme carries one.</li>
+    <li>Packing preference.</li>
+    <li>Destination port and the month the first container has to arrive.</li>
+  </ul>
+  <p>
+    We come back with a price per size, the weight and GSM behind it, and a sample before
+    bulk. Minimum 50 pieces per style, FOB Qingdao or CIF to your port.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">Towels in the rest of the order</h2>
+  <p>
+    Towels usually ship with bed linen, and the bath mat with either. Putting the whole
+    guest-room textile order on one inquiry keeps it to one contract, one inspection and one
+    set of export documents. Bed linen construction is on the
+    <a class="font-semibold underline" href="/hotel-bedding-supplier/">hotel bedding supplier</a>
+    page and the sheet range on
+    <a class="font-semibold underline" href="/hotel-linens/">hotel linens</a>. Anything else
+    goes through
+    <a class="font-semibold underline" href="/request-a-quote/">request a quote</a>.
+  </p>
+</SupplierLayout>

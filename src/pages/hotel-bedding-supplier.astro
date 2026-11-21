@@ -1,0 +1,137 @@
+---
+import SupplierLayout from '@/layouts/SupplierLayout.astro';
+import ProductGallery from '@/components/ProductGallery.astro';
+import { BEDDING_SPECS } from '@/data/specs';
+import { supplierTitle } from '@/lib/seo';
+
+const title = supplierTitle('Bedding');
+const terms = [
+  { label: 'Minimum order', value: '50 pieces per style. Mixed sizes in one order are quoted separately and shipped together.' },
+  { label: 'Sampling', value: 'A sample goes out before bulk. We confirm the sample cost and the lead time on the quotation.' },
+  { label: 'Lead time', value: 'Quoted per order, after the sample is approved. Sample run and bulk run are scheduled separately.' },
+  { label: 'Sizes', value: 'Cut to US, UK or AU specs, or to your own sheet layout.' },
+  { label: 'Payment', value: 'Terms come with the quotation and depend on order value and destination.' },
+  { label: 'Documents', value: 'Commercial invoice, packing list, bill of lading. Certificates where the project needs them.' },
+];
+---
+
+<SupplierLayout
+  title={title}
+  description="Hotel bedding supplied wholesale from our Qingdao factory: flat sheets, duvet covers, pillowcases and mattress protectors. MOQ 50 pcs, 240 to 384 TC."
+  h1="Hotel bedding supplier & wholesale manufacturer"
+  breadcrumb="Hotel Bedding Supplier"
+  serviceName="Hotel bedding supply and manufacturing"
+  serviceType="Hotel bedding supply and manufacturing: flat sheets, duvet covers, pillowcases and mattress protectors"
+  specs={BEDDING_SPECS}
+  images={['hotel-bedding-supplier-hero', 'hotel-linens-hero']}
+  specLead="All four yarn counts below are single-ply constructions. Nothing here is inflated by multi-ply counting."
+  terms={terms}
+  categoryHref="/hotel-linens/"
+  categoryLabel="Hotel linens range"
+>
+  <p>
+    Hotel bedding in our catalogue means flat sheets, duvet covers, pillowcases, mattress
+    protectors, and the down-alternative comforters and pillows that go with them. We make all
+    of it in Qingdao and ship wholesale. Trade accounts only, 50 pieces per style.
+  </p>
+  <p>
+    Most of what leaves the plant is custom hotel bedding: sizes cut from the property's own
+    layout rather than picked off a stock list. That is normal for a hotel order, and it is
+    why a catalogue with three standard sheet sizes will not get you far.
+  </p>
+  <p>
+    Most inquiries we get are replacements, not new builds. A hotel is running low on a size, or
+    the current supplier's thread count has quietly dropped and the linen no longer survives the
+    laundry contract. Either way, the buyer arrives with a spec already in hand. The job is to
+    match it, or to say clearly what changes if you move the price.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">What a bedding spec actually contains</h2>
+  <p>
+    A hotel sheet order is more specific than a retail one, and the parts that matter are not
+    the parts people talk about. The list below is what we need before we can quote a number
+    that holds up:
+  </p>
+  <ul class="list-disc space-y-2 pl-5">
+    <li>Mattress width and depth, per room type. A 20 cm and a 30 cm mattress take different flat sheet dimensions even at the same width.</li>
+    <li>Yarn count, or the thread count you are on now.</li>
+    <li>Construction: plain weave, sateen stripe, mercerized, or jacquard.</li>
+    <li>Hem style and width, if the property has a housekeeping standard to match.</li>
+    <li>Colour. White is standard. Anything else is a dye run with its own minimum.</li>
+    <li>Quantity per size, and the month the first container has to arrive.</li>
+  </ul>
+  <p>
+    Skip any of these and the quote becomes a guess. We would rather ask twice than send a
+    price for a sheet that turns out to be 10 cm short.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">Thread count, without the marketing</h2>
+  <p>
+    Thread count is the number of warp and weft threads per square inch. Our price list gives
+    the yarn numbers directly, so the count can be worked out rather than claimed:
+    40s×40s at 145×95 works out to about 240, 60s×40s at 173×120 to about 293, and 60s×80s at
+    200×(92+92) to about 384. The jacquard runs at 173×180, which counts to about 353.
+  </p>
+  <p>
+    Numbers above 400 in hotel linen are usually reached by counting plies separately. We do not
+    do that. A 240 TC single-ply percale and a "600 TC" two-ply sheet can be the same cloth.
+    If a supplier's spec sheet reads 1,000 TC at a hotel price, ask what was counted.
+  </p>
+  <p>
+    Higher count is not automatically better for a hotel. A finer yarn feels softer and wears
+    faster under commercial laundry. On a 100-wash contract, 240 TC percale often outlives 384
+    TC sateen. That is a real trade-off and it belongs in the buying decision, not in a
+    brochure.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">Four constructions and where they fit</h2>
+  <p>
+    Percale is the plain weave. Crisp, matte, the classic hotel hand. It handles high-temperature
+    laundry best, which is why most four-star properties stay on it.
+  </p>
+  <p>
+    Sateen stripe uses a satin weave with a woven band. It reads as more expensive on the bed and
+    shows ironing marks less, but a satin face is more prone to snagging in a busy laundry.
+  </p>
+  <p>
+    Mercerized cotton goes through a caustic treatment that increases lustre and dye uptake.
+    It looks brighter white and holds colour better through washing. Costs more per metre, and
+    the difference is visible mainly under hotel lighting, not in a photo.
+  </p>
+  <p>
+    Jacquard is woven on a dobby or jacquard loom, so the pattern is in the cloth rather than
+    printed on it. It does not fade off. It does cost more to produce and the minimum run is
+    higher.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">Comforter or quilt</h2>
+  <p>
+    Our price list calls the down-alternative item a quilt. In the US the same construction is
+    usually sold as a comforter. It is the same product; the name changed with the market. If
+    your spec sheet says comforter, quote it as a comforter.
+  </p>
+  <p>
+    We also make a lighter summer quilt for properties that run warm rooms without air
+    conditioning, and a down-alternative pillow in the same fill.
+  </p>
+  <ProductGallery
+    images={[
+      'bedding-comforter-hero',
+      'bedding-comforter-detail',
+      'bedding-pillow-stack',
+      'bedding-pillow-detail',
+    ]}
+  />
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">What happens after you send the spec</h2>
+  <p>
+    We come back with what we can hold to spec, what we would substitute, and the price gap
+    between the two. Substitutions are usually yarn count, hem width or carton packing. We will
+    flag any of those before production, not after.
+  </p>
+  <p>
+    Then a sample. Check the hand feel, the seam and the finished size against your own
+    measuring tape. If the sample is right, bulk runs. If it is not, better to find out on one
+    sheet than on four thousand.
+  </p>
+</SupplierLayout>

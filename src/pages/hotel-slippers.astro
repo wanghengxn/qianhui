@@ -1,0 +1,80 @@
+---
+import CategoryLayout from '@/layouts/CategoryLayout.astro';
+import { SLIPPER_SPECS } from '@/data/specs';
+import { categoryTitle } from '@/lib/seo';
+
+const title = categoryTitle('Slippers', ['Waffle', 'Coral Fleece']);
+---
+
+<CategoryLayout
+  title={title}
+  description="Disposable hotel slippers wholesale in terry cloth, waffle, coral fleece and dense velvet. Five SKUs, custom logo on request. MOQ 50 pcs."
+  h1="Hotel slippers"
+  breadcrumb="Hotel Slippers"
+  specs={SLIPPER_SPECS}
+  images={['slipper', 'slipper2']}
+  specLead="Four faces, five SKUs. Sole construction varies by SKU; tell us the bathroom floor and we will narrow it down."
+>
+  <p>
+    Slippers are the cheapest thing on a hotel's textile order and the one guests mention most.
+    That mismatch is why the fabric choice matters more than the price per pair.
+  </p>
+  <p>
+    We make five SKUs across four faces: terry cloth, waffle, coral fleece and dense velvet.
+    Which one a property picks usually comes down to whether the slipper is meant to be thrown
+    away or taken home, and what the bathroom floor is made of.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">The four faces</h2>
+  <p>
+    Terry cloth is the standard hotel slipper. Loop pile, soft, absorbs a wet foot, and reads as
+    the conventional choice. It is also the slowest of the four to dry.
+  </p>
+  <p>
+    Waffle is the open weave. It dries noticeably faster than terry and packs flat, which is why
+    it turns up in spa and resort programmes. The texture shows wear sooner, so it suits a
+    shorter replacement cycle.
+  </p>
+  <p>
+    Coral fleece is the warm one. Soft pile, a bit more substantial underfoot, and the face
+    guests tend to keep. For a cold-climate property, this is often the upsell.
+  </p>
+  <p>
+    Dense velvet has a flat, tight face and behaves closest to a reusable slipper. It is the
+    build for suites, not for standard rooms.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">Soles and floors</h2>
+  <p>
+    A marble bathroom floor in a wet climate is not the same risk as dry carpet in a desert
+    hotel, and the sole should differ. Some of our SKUs are built for grip, others for comfort.
+    Tell us the floor surface and the climate at inquiry and we will point at the right SKUs
+    rather than send the full list.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">Disposable or not</h2>
+  <p>
+    There is no industry definition of disposable. A guest decides that by whether the slipper
+    survives the first night. Terry and waffle are the throwaway end. Coral fleece and dense
+    velvet get taken home, which is either good branding or a cost you did not plan for,
+    depending on the property.
+  </p>
+  <p>
+    If the plan is to launder and reuse, say so. That is a different construction and it needs
+    to be quoted as one.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">Branding</h2>
+  <p>
+    Logo embroidery and woven labels are both possible on these SKUs. Send the artwork and the
+    placement you want, and confirm the colour count, because a multi-colour embroidered logo
+    changes both the price and the minimum.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">Packing</h2>
+  <p>
+    Slippers ship in individual polybags, in pairs, or in a printed carton with the amenity set
+    if the property uses one. Packing style affects carton cube and therefore freight, so it
+    belongs in the quote rather than in a follow-up email.
+  </p>
+</CategoryLayout>

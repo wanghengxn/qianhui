@@ -1,0 +1,182 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ProductGallery from '@/components/ProductGallery.astro';
+import { CATEGORY_PAGES, PRODUCT_PAGES, SUPPLIER_PAGES, SITE } from '@/config/site';
+import { HOME_SPECS } from '@/data/specs';
+import { organizationSchema, websiteSchema } from '@/lib/schema';
+
+const title = `Hotel Linen & Bedding Wholesale Supplier | ${SITE.name}`;
+const description =
+  'Hotel linen and bedding supply: sheets, towels, mattresses, slippers. Wholesale only, MOQ 50 pcs, mattresses tested to 16 CFR 1633.';
+
+---
+
+<BaseLayout title={title} description={description} jsonld={[organizationSchema(), websiteSchema()]}>
+  <section class="container-page pt-14 pb-10 sm:pt-20">
+    <h1 class="max-w-4xl text-3xl font-semibold tracking-tight sm:text-5xl">
+      Hotel linen supply, direct from the manufacturer
+    </h1>
+    <p class="mt-5 max-w-2xl text-lg text-ink-600">
+      Bed linens, towels and bathrobes made at our plant in Qingdao, mattresses and guest-room
+      textiles built to our specification, all sold wholesale. Minimum order 50 pieces per
+      style. Trade accounts only.
+    </p>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a href="/request-a-quote/" class="rounded-md bg-brand-600 px-5 py-3 text-sm font-semibold text-white">
+        Request a quote
+      </a>
+      <a href="#range" class="rounded-md border border-line px-5 py-3 text-sm font-semibold">
+        See the range
+      </a>
+    </div>
+  </section>
+
+  <section class="container-page pb-10">
+    <div class="max-w-3xl space-y-5 text-base leading-relaxed text-ink-600">
+      <p>
+        We make hotel linen in the sense a purchasing manager means it: flat sheets, duvet
+        covers, pillowcases, bath and hand towels, bath mats, mattress protectors, mattresses,
+        bathrobes and disposable slippers. One plant, one QC process, one shipment.
+      </p>
+      <p>
+        Buyers usually come to us with a room count and a spec they already use. Send the sizes,
+        the thread count or GSM you are on, the quantity and the month you need it. We will tell
+        you what we can make to your spec, what we would substitute, and what the substitution
+        does to price and wash life. If you have no spec yet, we will put three options side by
+        side and say which one we would buy.
+      </p>
+    </div>
+  </section>
+
+  <section id="range" class="container-page py-8">
+    <h2 class="text-xl font-semibold">What we supply</h2>
+    <p class="mt-2 max-w-2xl text-sm text-ink-600">
+      Sizes and weights below are from our current price list. Each product page goes further
+      into construction and the widths we can cut.
+    </p>
+    <div class="mt-5 overflow-x-auto">
+      <table class="w-full min-w-[42rem] border-collapse text-sm">
+        <thead>
+          <tr class="border-b border-line text-left text-xs uppercase tracking-wide text-ink-600">
+            <th class="py-3 pr-4 font-semibold">Item</th>
+            <th class="py-3 pr-4 font-semibold">Sizes</th>
+            <th class="py-3 font-semibold">Construction</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            HOME_SPECS.map((row) => (
+              <tr class="border-b border-line align-top">
+                <td class="py-3 pr-4 font-medium text-ink-900">{row.item}</td>
+                <td class="py-3 pr-4 text-ink-600">{row.sizes}</td>
+                <td class="py-3 text-ink-600">{row.spec}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+    <ProductGallery
+      images={[
+        'hotel-linens-hero',
+        'hotel-towels-hero',
+        'products-bathrobes-hero',
+        'hotel-mattress-supplier-hero',
+      ]}
+    />
+  </section>
+
+  <section class="container-page py-8">
+    <div class="max-w-3xl">
+      <h2 class="text-xl font-semibold">Mattress fire compliance</h2>
+      <p class="mt-3 leading-relaxed text-ink-600">
+        US hotel projects ask for 16 CFR 1633 before they will spec a mattress. Our barrier is
+        220 g fire-retardant cotton and 90 g fire-retardant foam over the pocket-spring unit,
+        and the build is tested to 16 CFR 1633 at SGS Shunde. Ask for the report, number
+        SDFTS25002706R05_EN, with your quote.
+      </p>
+      <p class="mt-3 leading-relaxed text-ink-600">
+        If the project runs under a different standard, tell us which one at inquiry stage. We
+        would rather say no early than ship something that fails an inspection.
+      </p>
+      <a href="/guides/16-cfr-1633-hotel-mattress/" class="mt-4 inline-block text-sm font-semibold underline">
+        What 16 CFR 1633 requires
+      </a>
+    </div>
+  </section>
+
+  <section class="container-page py-8">
+    <h2 class="text-xl font-semibold">Browse by product</h2>
+    <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        [...CATEGORY_PAGES, ...PRODUCT_PAGES].map((item) => (
+          <a href={item.href} class="rounded-lg border border-line p-5 transition hover:border-brand-600">
+            <p class="text-sm font-semibold">{item.label}</p>
+            <p class="mt-1 text-xs text-ink-600">{item.hint}</p>
+          </a>
+        ))
+      }
+    </div>
+    <div class="mt-6 grid gap-4 sm:grid-cols-2">
+      {
+        SUPPLIER_PAGES.map((item) => (
+          <a href={item.href} class="rounded-lg border border-line bg-surface p-5 transition hover:border-brand-600">
+            <p class="text-sm font-semibold">{item.label}</p>
+            <p class="mt-1 text-xs text-ink-600">{item.hint}</p>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="container-page py-8">
+    <h2 class="text-xl font-semibold">How a first order runs</h2>
+    <ol class="mt-4 max-w-3xl space-y-4 text-ink-600">
+      <li class="flex gap-4">
+        <span class="mt-0.5 text-sm font-semibold text-ink-900">1</span>
+        <p>You send sizes, thread count or GSM, quantity and destination port.</p>
+      </li>
+      <li class="flex gap-4">
+        <span class="mt-0.5 text-sm font-semibold text-ink-900">2</span>
+        <p>We confirm what holds to your spec and quote the rest, with MOQ and lead time.</p>
+      </li>
+      <li class="flex gap-4">
+        <span class="mt-0.5 text-sm font-semibold text-ink-900">3</span>
+        <p>A sample goes out. Check the hand feel and the seams before bulk starts.</p>
+      </li>
+      <li class="flex gap-4">
+        <span class="mt-0.5 text-sm font-semibold text-ink-900">4</span>
+        <p>Production, inspection, export documents, freight.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="container-page py-8">
+    <div class="max-w-3xl space-y-5 leading-relaxed text-ink-600">
+      <p>
+        Sizes can be cut to US, UK or AU specs, or to your own sheet layout. Send the sizes your
+        rooms actually use rather than a standard list and we will work from those.
+      </p>
+      <p>
+        We do not do retail packaging, and we do not sell single sets. If you need one duvet
+        cover for your own bed, we are the wrong supplier.
+      </p>
+    </div>
+  </section>
+
+  <section class="container-page py-10">
+    <div class="rounded-xl border border-line bg-surface p-8">
+      <h2 class="text-xl font-semibold">Send your requirements</h2>
+      <p class="mt-2 text-sm text-ink-600">
+        Property type, sizes, GSM or thread count, and the delivery month. Trade inquiries
+        only; we reply by email.
+      </p>
+      <a
+        href="/request-a-quote/"
+        class="mt-5 inline-block rounded-md bg-brand-600 px-5 py-3 text-sm font-semibold text-white"
+      >
+        Request a quote
+      </a>
+    </div>
+  </section>
+</BaseLayout>

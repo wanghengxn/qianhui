@@ -1,0 +1,36 @@
+---
+import ProductLayout from '@/layouts/ProductLayout.astro';
+import { DUVET_SPECS } from '@/data/specs';
+import { pageTitle } from '@/lib/seo';
+---
+
+<ProductLayout
+  title={pageTitle('Hotel Duvet Covers')}
+  description="Hotel duvet covers in percale, sateen stripe, mercerized cotton and jacquard, 180 to 250 cm wide. Wholesale."
+  h1="Hotel duvet covers"
+  breadcrumb="Duvet Covers"
+  specs={DUVET_SPECS}
+  images={['products-duvet-covers-hero']}
+>
+  <p>
+    Duvet covers run 180 to 250 cm wide at 245 cm long and are cut to whatever insert the
+    property uses. The cover size follows the duvet, not the bed, so send the insert dimensions
+    rather than the mattress width.
+  </p>
+  <p>
+    Four faces: percale for the standard programme, sateen stripe where the bed is part of the
+    brand standard, mercerized for a brighter white, and jacquard where the pattern has to
+    survive laundering rather than sit on the surface.
+  </p>
+  <p>
+    Closure matters in a hotel more than it does at home. Buttons survive industrial pressing
+    better than a flap, and a flap that does not sit flat looks untidy by the second wash. Tell
+    us which the property's housekeeping expects.
+  </p>
+  <p>
+    Construction, thread counts and cut-to-order minimums are on the
+    <a class="font-semibold underline" href="/hotel-bedding-supplier/">hotel bedding supplier</a>
+    page. The wider sheet range is on
+    <a class="font-semibold underline" href="/hotel-linens/">hotel linens</a>.
+  </p>
+</ProductLayout>

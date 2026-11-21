@@ -1,0 +1,32 @@
+---
+import ProductLayout from '@/layouts/ProductLayout.astro';
+import { MATTRESS_SPECS } from '@/data/specs';
+import { pageTitle } from '@/lib/seo';
+---
+
+<ProductLayout
+  title={pageTitle('Hotel Mattresses')}
+  description="Pocket spring hotel mattresses, 110 to 180 cm wide, 20 to 30 cm deep, tested to 16 CFR 1633. Wholesale."
+  h1="Hotel mattresses"
+  breadcrumb="Mattresses"
+  specs={MATTRESS_SPECS}
+  images={['products-mattresses-hero', 'products-mattresses-detail']}
+>
+  <p>
+    Our hotel mattress is a pocket-spring build in 110, 120, 150 and 180 cm widths, all 200 cm
+    long, in 20, 25 or 30 cm depth. Medium firm is the standard. The comfort layer changes if a
+    project specifies otherwise; the spring unit does not.
+  </p>
+  <p>
+    The fire barrier is 220 g fire-retardant cotton and 90 g fire-retardant foam over the spring
+    unit. The build is tested to 16 CFR 1633 at SGS Shunde, report SDFTS25002706R05_EN, and the
+    report is available on request.
+  </p>
+  <p>
+    For the full build options, including double-sided and topper versions, see the mattress
+    supplier page. This page is the range summary.
+  </p>
+  <p>
+    <a class="font-semibold underline" href="/hotel-mattress-supplier/">Mattress supplier page</a>
+  </p>
+</ProductLayout>

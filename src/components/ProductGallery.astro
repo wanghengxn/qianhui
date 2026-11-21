@@ -1,0 +1,29 @@
+---
+import { Image } from 'astro:assets';
+import { IMAGE_ALT, productImage } from '@/data/images';
+
+interface Props {
+  /** 文件名（不含 .jpg），见 src/data/images.ts */
+  images: string[];
+}
+
+const { images } = Astro.props;
+---
+
+<div class="mt-8 grid gap-4 sm:grid-cols-2">
+  {
+    images.map((key) => (
+      <figure class="overflow-hidden rounded-lg border border-line bg-surface">
+        <Image
+          src={productImage(key)}
+          alt={IMAGE_ALT[key] ?? ''}
+          widths={[480, 840]}
+          sizes="(min-width: 640px) 50vw, 100vw"
+          loading="lazy"
+          decoding="async"
+          class="aspect-[3/2] w-full object-cover"
+        />
+      </figure>
+    ))
+  }
+</div>

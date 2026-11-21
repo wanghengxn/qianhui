@@ -1,0 +1,57 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import { pageTitle } from '@/lib/seo';
+import { breadcrumbSchema } from '@/lib/schema';
+
+const guides = [
+  {
+    href: '/guides/16-cfr-1633-hotel-mattress/',
+    label: '16 CFR 1633 hotel mattress compliance',
+    summary:
+      'The US open-flame test for mattress sets: what TB 129 measures, how prototype qualification works, which documents to ask for, and why "tested to" and "compliant" are not the same claim.',
+  },
+];
+---
+
+<BaseLayout
+  title={pageTitle('Hotel Textile Buying Guides')}
+  description="Buying guides for hotel textiles: the standards, tests and spec questions that come up before a purchase order."
+  jsonld={[breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Guides', path: '/guides/' }])]}
+>
+  <div class="container-page py-8">
+    <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Guides' }]} />
+  </div>
+
+  <section class="container-page pb-6">
+    <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">Guides</h1>
+    <p class="mt-4 max-w-2xl leading-relaxed text-ink-600">
+      These are written for the person on the other side of the purchase order, not for the
+      showroom. Standards, test methods, and the questions worth asking a supplier before you
+      commit to a container.
+    </p>
+  </section>
+
+  <section class="container-page pb-10">
+    <ul class="grid gap-4">
+      {
+        guides.map((g) => (
+          <li>
+            <a href={g.href} class="block rounded-lg border border-line p-6 transition hover:border-brand-600">
+              <p class="font-semibold">{g.label}</p>
+              <p class="mt-2 text-sm leading-relaxed text-ink-600">{g.summary}</p>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="container-page pb-12">
+    <p class="max-w-2xl text-sm text-ink-600">
+      If a standard appears on your spec sheet and you are not sure what it requires, send it
+      with the inquiry. We would rather tell you early that we cannot meet it than find out at
+      inspection.
+    </p>
+  </section>
+</BaseLayout>

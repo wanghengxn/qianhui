@@ -1,0 +1,90 @@
+---
+import CategoryLayout from '@/layouts/CategoryLayout.astro';
+import { TOWEL_SPECS } from '@/data/specs';
+import { categoryTitle } from '@/lib/seo';
+
+const title = categoryTitle('Towels', ['625 GSM', '100% Cotton']);
+---
+
+<CategoryLayout
+  title={title}
+  description="Hotel towels wholesale: bath, face and hand towels in 100% cotton, 490 to 625 GSM, plus 1000 GSM cotton bath mats. MOQ 50 pcs."
+  h1="Hotel towels"
+  breadcrumb="Hotel Towels"
+  specs={TOWEL_SPECS}
+  images={['towel']}
+  specLead="GSM is calculated from weight and finished size. Both are listed so the number can be checked."
+  supplierHref="/hotel-towel-supplier/"
+  supplierLabel="Hotel towel supplier"
+>
+  <p>
+    Towel specs live or die on GSM, and GSM is the one number buyers routinely get wrong. It is
+    grams per square metre, not per towel. Two bath towels can both be listed as 800 g and still
+    be different cloths if one is 70 × 140 and the other is 80 × 160.
+  </p>
+  <p>
+    Our bath towel is 80 × 160 cm at 800 g, which works out to about 625 GSM. The face towel is
+    35 × 75 cm at 150 g, about 571 GSM. The hand towel is 35 × 35 cm at 60 g, about 490 GSM.
+    The cotton bath mat is the densest thing on the line at 1000 GSM in 50 × 80 cm.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">What the GSM actually changes</h2>
+  <p>
+    Below about 450 GSM a towel feels thin after a few washes and dries fast. That suits budget
+    properties and high-turnover rooms where laundry turnaround matters more than hand feel.
+  </p>
+  <p>
+    550 to 650 GSM is the range most hotels settle on. Heavy enough to feel like a hotel towel,
+    light enough that a commercial dryer can still handle the throughput.
+  </p>
+  <p>
+    Above 700 GSM the towel gets plush and also gets slow. A 1000 GSM bath mat is fine on a
+    bathroom floor. A 1000 GSM bath towel would sit damp in the dryer and cost you more in gas
+    than it does in cotton.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">Cotton, and what we do not claim</h2>
+  <p>
+    All four weights are 100% cotton. We do not put fibre-length claims on the spec sheet
+    because we have not tested for them, and a supplier who claims long-staple without a test
+    report is telling you a story.
+  </p>
+  <p>
+    What you can judge is the pile and the weight. Terry loop construction is what makes a towel
+    absorb. Heavier pile absorbs more and dries slower. Send us the towel you are replacing if
+    you want a like-for-like quote; matching by GSM alone gets you close, not identical.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">Sizes and quantities</h2>
+  <p>
+    The four standard sizes above cover most hotel programmes. Larger bath sheets, smaller
+    gym-size towels and wrapped amenity sets are cut to order. Tell us the finished size, not
+    the nominal one; shrinkage is part of the cutting plan.
+  </p>
+  <p>
+    Towels are ordered in dozens in most markets and per piece in others. Quote whichever way
+    your system runs. We will not put a per-towel retail figure anywhere on this page, because
+    this is a wholesale line and a retail number invites the wrong kind of inquiry.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">Hotel bath linen</h2>
+  <p>
+    In purchasing lists, hotel bath linen is the bath, hand and face towels plus the bath
+    mat. Suppliers split the term differently. Some quote towels only and bill the mat on a
+    separate line, some count a face cloth and some do not. Put all four on one inquiry so
+    the quote covers the room rather than part of it.
+  </p>
+  <p>
+    Order the towels and the mat together where you can. White towelling from separate dye
+    lots can read slightly different under bathroom lighting, and a mat a shade off the
+    towels is the sort of detail a guest notices before the thread count.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">Bath mats</h2>
+  <p>
+    The cotton bath mat is 50 × 80 cm at 400 g. At 1000 GSM it behaves more like a small rug than
+    a towel: it stays where it is put and takes longer to dry. That is usually what a bathroom
+    needs, but a property with limited drying capacity should know before ordering a hundred of
+    them.
+  </p>
+</CategoryLayout>

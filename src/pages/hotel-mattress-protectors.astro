@@ -1,0 +1,62 @@
+---
+import CategoryLayout from '@/layouts/CategoryLayout.astro';
+import { PROTECTOR_SPECS } from '@/data/specs';
+import { categoryTitle } from '@/lib/seo';
+
+const title = categoryTitle('Mattress Protectors', ['120–180 cm', 'Four-Corner Elastic']);
+---
+
+<CategoryLayout
+  title={title}
+  description="Hotel mattress protectors wholesale in 120, 150 and 180 × 200 cm with four-corner elastic. Polyester face and fill. MOQ 50 pcs."
+  h1="Hotel mattress protectors"
+  breadcrumb="Mattress Protectors"
+  specs={PROTECTOR_SPECS}
+  images={['hotel-mattress-protectors', 'hotel-mattress-protectors1']}
+  specLead="Three sizes, four-corner elastic, polyester face and fill. Confirm whether the project needs a waterproof layer."
+  supplierHref="/hotel-mattress-supplier/"
+  supplierLabel="Hotel mattress supplier"
+>
+  <p>
+    A protector does two jobs. It keeps spills and stains out of the mattress, and it adds a
+    replaceable layer between the guest and a mattress that has to last a decade. The second job
+    is the one housekeeping cares about, because a stained mattress cannot be cleaned back to
+    white.
+  </p>
+  <p>
+    Ours is polyester face and fill with elastic at the four corners, in 120, 150 and 180 × 200 cm.
+    It sits over the mattress and under the fitted sheet.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">Fit, not size</h2>
+  <p>
+    The size on the label is the mattress, not the fabric. A 30 cm deep mattress and a 20 cm one
+    take the same protector size and a different skirt depth. If the project uses both depths,
+    say so; otherwise the deeper beds will pull the corners off by the second wash.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">Waterproof or not</h2>
+  <p>
+    The standard build is not a waterproof barrier. If the property needs one, that is a
+    different laminate and a different price, and it should be specified before the order rather
+    than discovered after the first complaint.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">Fire standard for pads</h2>
+  <p>
+    In the US, mattress pads fall under a separate cigarette-ignition standard from the mattress
+    itself. If your project's spec sheet requires qualifying documents for the protector, send
+    that line to us at inquiry so we can tell you what we can supply. We would rather answer
+    honestly than assume the mattress paperwork covers the pad.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">Ordering with mattresses</h2>
+  <p>
+    Most of our protector volume ships with a mattress order. It saves a second freight booking
+    and it means the property is not storing bare mattresses while a second container arrives.
+    If you are buying both, put them on one inquiry and we will quote them together. Mattress
+    builds and their fire documentation are on the
+    <a class="font-semibold underline" href="/hotel-mattress-supplier/">hotel mattress supplier</a>
+    page.
+  </p>
+</CategoryLayout>

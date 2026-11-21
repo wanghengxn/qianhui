@@ -1,0 +1,82 @@
+---
+import '@/styles/global.css';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import { SITE, absUrl } from '@/config/site';
+
+interface Props {
+  /** <title>，用 @/lib/seo 里的模板拼 */
+  title: string;
+  /** ≤155 字符；留空则不输出 meta description（宁可没有，不要凑） */
+  description?: string;
+  ogImage?: string;
+  noindex?: boolean;
+  /** 不输出 <link rel="canonical">；404 这类非真实页面用 */
+  noCanonical?: boolean;
+  /** 结构化数据，用 @/lib/schema 里的构造函数 */
+  jsonld?: Record<string, unknown>[];
+}
+
+const {
+  title,
+  description,
+  ogImage = SITE.defaultOgImage,
+  noindex = false,
+  noCanonical = false,
+  jsonld = [],
+} = Astro.props;
+
+const canonical = absUrl(Astro.url.pathname);
+const image = absUrl(ogImage);
+---
+
+<!doctype html>
+<html lang={SITE.lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    {!noCanonical && <link rel="canonical" href={canonical} />}
+    {noindex && <meta name="robots" content="noindex, follow" />}
+
+    {/* Open Graph */}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={image} />
+    <meta property="og:locale" content={SITE.locale} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    {description && <meta name="twitter:description" content={description} />}
+    <meta name="twitter:image" content={image} />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    {jsonld.map((data) => (
+      <script type="application/ld+json" set:html={JSON.stringify(data)} />
+    ))}
+  </head>
+
+  <body class="flex min-h-screen flex-col bg-white">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:rounded focus:bg-white focus:px-4 focus:py-2 focus:shadow"
+    >
+      Skip to content
+    </a>
+
+    <Header />
+
+    <main id="main" class="flex-1">
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>

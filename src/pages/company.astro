@@ -1,0 +1,205 @@
+---
+/**
+ * 公司介绍页（信任页）。
+ * 内容来源：qingdao-qianhui-company-profile.md（集团简介 PDF 转录）。
+ * 口径：只写资料里有的数字；营销话术（如"30 年零投诉"）不转写。
+ * 证书与奥运订单都按"这是公司自述文件"处理，不延伸成产品性能承诺。
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import ProductGallery from '@/components/ProductGallery.astro';
+import { SITE } from '@/config/site';
+import { pageTitle } from '@/lib/seo';
+import { breadcrumbSchema, organizationSchema } from '@/lib/schema';
+
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Company', path: '/company/' },
+];
+---
+
+<BaseLayout
+  title={pageTitle('About the Factory')}
+  description="Qingdao Qianhui Home Textile Group: founded 1987, a 40,000 m² plant in Jimo District, Qingdao, and hotel bedding supplier to the 2008 Beijing Olympic Games."
+  jsonld={[breadcrumbSchema(crumbs), organizationSchema()]}
+>
+  <div class="container-page py-8">
+    <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Company' }]} />
+  </div>
+
+  <article class="container-page max-w-3xl pb-16">
+    <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">{SITE.legalName}</h1>
+    <p class="mt-4 text-lg leading-relaxed text-ink-600">
+      Hotel textiles made in Qingdao since 1987, sold wholesale to properties and distributors
+      outside China.
+    </p>
+
+    <dl class="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-4">
+      <div class="bg-white p-4">
+        <dt class="text-xs uppercase tracking-wide text-ink-600">Founded</dt>
+        <dd class="mt-1 text-lg font-semibold text-ink-900">1987</dd>
+      </div>
+      <div class="bg-white p-4">
+        <dt class="text-xs uppercase tracking-wide text-ink-600">Plant</dt>
+        <dd class="mt-1 text-lg font-semibold text-ink-900">40,000 m²</dd>
+      </div>
+      <div class="bg-white p-4">
+        <dt class="text-xs uppercase tracking-wide text-ink-600">Group companies</dt>
+        <dd class="mt-1 text-lg font-semibold text-ink-900">Six</dd>
+      </div>
+      <div class="bg-white p-4">
+        <dt class="text-xs uppercase tracking-wide text-ink-600">Olympic order</dt>
+        <dd class="mt-1 text-lg font-semibold text-ink-900">2008</dd>
+      </div>
+    </dl>
+
+    <div class="mt-10 space-y-5 leading-relaxed text-ink-600">
+      <h2 class="pt-4 text-xl font-semibold text-ink-900">What this site sells, and what it does not</h2>
+      <p>
+        The group has six operating companies. Three of them are textile businesses, and the
+        others work in medical devices, bottled water and beer. None of that last group is on
+        this website.
+      </p>
+      <p>
+        Here you can buy hotel sheets, duvet covers, pillowcases, towels, bathrobes, slippers,
+        mattress protectors and mattresses. If your construction is outside what we run, we will
+        say so rather than quote around it.
+      </p>
+      <p>
+        Bed linen, towels and bathrobes are made at the Jimo plant. Mattresses are made by specialist
+        mattress factories that build to our specification, and they are sold under the same
+        order, contract and warranty as the rest of the range. The test reports are issued to
+        those plants; ask for the PDFs with the quote and the holder's name is on each one.
+      </p>
+
+      <h2 class="pt-6 text-xl font-semibold text-ink-900">The six companies</h2>
+      <ul class="space-y-4">
+        <li>
+          <p class="font-medium text-ink-900">Qingdao Qianhui Embroidery Co., Ltd.</p>
+          <p class="text-sm">Embroidery and jacquard work, including the Olympic order described below.</p>
+        </li>
+        <li>
+          <p class="font-medium text-ink-900">Qingdao Qianhui Trading Co., Ltd.</p>
+          <p class="text-sm">The group's trading arm.</p>
+        </li>
+        <li>
+          <p class="font-medium text-ink-900">E.S.bu.Textile (Bangladesh) Co., Ltd.</p>
+          <p class="text-sm">A textile company in Dhaka.</p>
+        </li>
+        <li>
+          <p class="font-medium text-ink-900">Qingdao Huawei Medical Devices Co., Ltd.</p>
+          <p class="text-sm">Outside textiles.</p>
+        </li>
+        <li>
+          <p class="font-medium text-ink-900">
+            Qingdao Qianhui Wuqishan Medical Stone Water Industry Co., Ltd.
+          </p>
+          <p class="text-sm">Outside textiles.</p>
+        </li>
+        <li>
+          <p class="font-medium text-ink-900">Qingdao Qingdeli Beer Co., Ltd.</p>
+          <p class="text-sm">Outside textiles.</p>
+        </li>
+      </ul>
+
+      <h2 class="pt-6 text-xl font-semibold text-ink-900">The 2008 Beijing Olympics order</h2>
+      <p>
+        In 2008, Qianhui Embroidery was the designated hotel bedding supplier for the Beijing
+        Olympic Games, and was authorised by the International Olympic Committee as an Olympic
+        licensed product supplier.
+      </p>
+      <p>
+        What that proves is that the company could deliver hotel bedding in volume, to a
+        deadline, under inspection. What it does not prove is that the duvet cover you order
+        now is the same construction that was supplied then. The Olympic order is a document in
+        the vendor file. Your specification is a separate document, and the current one is the
+        one that counts.
+      </p>
+
+      <h2 class="pt-6 text-xl font-semibold text-ink-900">The plant and the price list</h2>
+      <p>
+        The plant covers more than 40,000 m² in Jimo District, Qingdao. Fixed assets are listed
+        at RMB 260 million. Our current hotel price list runs to 59 SKUs, from flat sheets to
+        mattresses.
+      </p>
+      <p>
+        Those numbers answer the questions on a vendor form. They say less about a particular
+        order than the GSM of the towel you are buying, which is why the specifications live on
+        the product pages instead of being repeated here.
+      </p>
+      <p class="text-sm">
+        <a class="font-semibold underline" href="/hotel-bedding-supplier/">Bedding supplier</a>
+        <span class="mx-2 text-ink-600">·</span>
+        <a class="font-semibold underline" href="/hotel-mattress-supplier/">Mattress supplier</a>
+      </p>
+
+      <div class="pt-4">
+        <ProductGallery images={['company-plant', 'company-workshop']} />
+      </div>
+
+      <h2 class="pt-6 text-xl font-semibold text-ink-900">Certifications</h2>
+      <p>
+        Qianhui Embroidery, the manufacturing company, holds ISO 9001:2015, ISO 14001:2015 and
+        ISO 45001:2018 certificates issued by Xingyuan Certification Centre on 7 July 2025 and
+        valid to 6 July 2028. It also holds China Environmental Label certification for direct
+        contact and non-direct-contact textile products, valid to 11 May 2028.
+      </p>
+      <p>
+        None of these is a product fire test. For a US mattress the document that matters is a
+        16 CFR 1633 report. We hold SGS report SDFTS25002706R05_EN for a pocket-spring
+        prototype; it was issued to the mattress factory, not to Qianhui, and the page linked
+        below says which sizes it covers. If your vendor file needs the originals, ask for them
+        with the quotation.
+      </p>
+      <p class="text-sm">
+        <a class="font-semibold underline" href="/certifications/">Certifications and test reports</a>
+      </p>
+
+      <h2 class="pt-6 text-xl font-semibold text-ink-900">Awards, and how much they are worth</h2>
+      <p>
+        The group holds a run of provincial and municipal titles: Shandong Famous Trademark,
+        Shandong Famous Brand, AAA Credit Enterprise, China Inspection Exemption Enterprise,
+        Qingdao Top 100 Scientific and Technological Private Enterprises, and Qingdao Top Ten
+        Enterprises with Brand Influence.
+      </p>
+      <p>
+        They carry weight in Chinese procurement and less outside it. We list them here because
+        buyers compiling a vendor file ask for them, not because a provincial award tells you
+        anything about the thread count of a sheet.
+      </p>
+
+      <h2 class="pt-6 text-xl font-semibold text-ink-900">Where we are</h2>
+      <p>
+        <span class="font-medium text-ink-900">Head office and plant:</span>
+        {SITE.contact.address}.
+      </p>
+      <p>
+        <span class="font-medium text-ink-900">Bangladesh:</span> E.S.bu.Textile (Bangladesh)
+        Co., Ltd., House 40, Road 7, Sector 3, Uttara Model Town, Dhaka 1230, Bangladesh.
+      </p>
+      <p>
+        Orders for this site are quoted from Qingdao. The Bangladesh company is a separate
+        legal entity in the group; if your programme is in South Asia, ask which entity the
+        order will be invoiced from.
+      </p>
+      <p>
+        Email <a class="font-semibold underline" href={`mailto:${SITE.contact.email}`}>{SITE.contact.email}</a>.
+        The same number takes WhatsApp and calls: <a
+          class="font-semibold underline"
+          href={`https://wa.me/${SITE.contact.whatsapp}`}
+        >{SITE.contact.phone}</a>.
+      </p>
+    </div>
+
+    <div class="mt-10 rounded-lg border border-line bg-surface p-6">
+      <h2 class="text-lg font-semibold">Put a room count against it</h2>
+      <p class="mt-2 text-sm text-ink-600">
+        Send the property type, the bed sizes, and the month you need the goods. We will reply
+        with what we can make to your spec and what we would substitute.
+      </p>
+      <a href="/request-a-quote/" class="mt-4 inline-block rounded-md bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white">
+        Request a quote
+      </a>
+    </div>
+  </article>
+</BaseLayout>

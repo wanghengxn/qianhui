@@ -1,0 +1,89 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import { CATEGORY_PAGES, PRODUCT_PAGES, SUPPLIER_PAGES } from '@/config/site';
+import { pageTitle } from '@/lib/seo';
+import { breadcrumbSchema } from '@/lib/schema';
+---
+
+<BaseLayout
+  title={pageTitle('Products')}
+  description="Hotel linen, towel, slipper and mattress ranges, plus the items that ship alongside them. Wholesale only."
+  noindex
+  jsonld={[breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Products', path: '/products/' }])]}
+>
+  <div class="container-page py-8">
+    <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Products' }]} />
+  </div>
+
+  <section class="container-page pb-8">
+    <h1 class="text-3xl font-semibold tracking-tight">Products</h1>
+    <div class="mt-4 max-w-3xl space-y-4 leading-relaxed text-ink-600">
+      <p>
+        The catalogue runs on two levels. Ranges are what a purchasing manager orders by the
+        pallet: bed linen, towels, slippers, mattress protectors. Single products are the items
+        that usually ride along with one of those orders. Bathrobes go out with the towel
+        programme, duvet covers with the sheet programme, because they are cut from the same
+        cloth and have to stay the same white.
+      </p>
+      <p>
+        If you already have a spec, go straight to the matching range and compare your sizes with
+        ours. If you do not, send a room count and we will put a full guest-room set together.
+      </p>
+    </div>
+  </section>
+
+  <section class="container-page pb-8">
+    <h2 class="text-xl font-semibold">Ranges</h2>
+    <div class="mt-4 grid gap-4 sm:grid-cols-2">
+      {
+        CATEGORY_PAGES.map((item) => (
+          <a href={item.href} class="rounded-lg border border-line p-5 transition hover:border-brand-600">
+            <p class="text-sm font-semibold">{item.label}</p>
+            <p class="mt-1 text-xs text-ink-600">{item.hint}</p>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="container-page pb-8">
+    <h2 class="text-xl font-semibold">Single products</h2>
+    <div class="mt-4 grid gap-4 sm:grid-cols-2">
+      {
+        PRODUCT_PAGES.map((item) => (
+          <a href={item.href} class="rounded-lg border border-line p-5 transition hover:border-brand-600">
+            <p class="text-sm font-semibold">{item.label}</p>
+            <p class="mt-1 text-xs text-ink-600">{item.hint}</p>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="container-page pb-8">
+    <h2 class="text-xl font-semibold">Supplier pages</h2>
+    <p class="mt-2 max-w-2xl text-sm text-ink-600">
+      The two ranges with the most spec questions get their own page: bedding and mattresses.
+      Both cover minimums, sampling and what a quotation includes.
+    </p>
+    <div class="mt-4 grid gap-4 sm:grid-cols-2">
+      {
+        SUPPLIER_PAGES.map((item) => (
+          <a href={item.href} class="rounded-lg border border-line bg-surface p-5 transition hover:border-brand-600">
+            <p class="text-sm font-semibold">{item.label}</p>
+            <p class="mt-1 text-xs text-ink-600">{item.hint}</p>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="container-page pb-12">
+    <p class="text-sm text-ink-600">
+      No prices on this page. Quotations depend on quantity, construction and port, so they are
+      written per inquiry.
+      <a href="/request-a-quote/" class="ml-1 font-semibold underline">Request a quote</a>
+    </p>
+  </section>
+</BaseLayout>

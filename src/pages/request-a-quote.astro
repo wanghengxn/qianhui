@@ -1,0 +1,100 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import QuoteForm from '@/components/QuoteForm.astro';
+import { SITE } from '@/config/site';
+import { pageTitle } from '@/lib/seo';
+import { breadcrumbSchema } from '@/lib/schema';
+
+const hasContact = Boolean(SITE.contact.email || SITE.contact.phone || SITE.contact.whatsapp);
+const phoneDigits = SITE.contact.phone.replace(/\D/g, '');
+/** 手机号同时是 WhatsApp 时只显示一次 */
+const showPhone = Boolean(SITE.contact.phone) && phoneDigits !== SITE.contact.whatsapp;
+---
+
+<BaseLayout
+  title={pageTitle('Request a Quote')}
+  description="Send hotel linen, towel, slipper and mattress requirements for a wholesale quotation. MOQ 50 pieces per style. Trade accounts only."
+  jsonld={[breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Request a Quote', path: '/request-a-quote/' }])]}
+>
+  <div class="container-page py-8">
+    <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Request a Quote' }]} />
+  </div>
+
+  <section class="container-page pb-6">
+    <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">Request a quote</h1>
+    <div class="mt-4 max-w-2xl space-y-4 leading-relaxed text-ink-600">
+      <p>
+        Four things make an inquiry useful: what you are buying, the sizes or weights you are on
+        now, roughly how many, and when you need them. The rest we can ask for afterwards.
+      </p>
+      <p>
+        Minimum order is 50 pieces per style. We quote trade accounts, not single sets. If you
+        are furnishing one bedroom, this is the wrong form.
+      </p>
+    </div>
+  </section>
+
+  <section class="container-page grid gap-10 py-8 lg:grid-cols-[minmax(0,1fr)_20rem]">
+    <div>
+      <QuoteForm />
+    </div>
+
+    <aside class="space-y-6">
+      <div class="rounded-lg border border-line p-5">
+        <p class="text-sm font-semibold">What happens next</p>
+        <ol class="mt-3 space-y-3 text-sm text-ink-600">
+          <li>
+            <span class="font-medium text-ink-900">1.</span> We check the spec against what we
+            can make and come back with questions where something is unclear.
+          </li>
+          <li>
+            <span class="font-medium text-ink-900">2.</span> If the spec is close to a
+            construction we already run, we quote it. If it is not, we quote the nearest build
+            and say what changes.
+          </li>
+          <li>
+            <span class="font-medium text-ink-900">3.</span> You get MOQ per style, sample
+            arrangement and a lead time for the sizes ordered.
+          </li>
+        </ol>
+      </div>
+
+      <div class="rounded-lg border border-line p-5">
+        <p class="text-sm font-semibold">Also worth sending</p>
+        <ul class="mt-3 space-y-2 text-sm text-ink-600">
+          <li>Your current spec sheet, even if it is a competitor's.</li>
+          <li>Room count and the mix of bed sizes.</li>
+          <li>Any standard the destination requires.</li>
+          <li>The month the goods need to land, not just leave.</li>
+        </ul>
+      </div>
+
+      {
+        hasContact && (
+          <div class="rounded-lg border border-line p-5">
+            <p class="text-sm font-semibold">Direct contact</p>
+            <ul class="mt-3 space-y-2 text-sm text-ink-600">
+              {SITE.contact.email && (
+                <li>
+                  <a class="underline" href={`mailto:${SITE.contact.email}`}>
+                    {SITE.contact.email}
+                  </a>
+                </li>
+              )}
+              {SITE.contact.whatsapp && (
+                <li>
+                  <a class="underline" href={`https://wa.me/${SITE.contact.whatsapp}`}>
+                    WhatsApp {SITE.contact.phone}
+                  </a>
+                </li>
+              )}
+              {showPhone && <li>{SITE.contact.phone}</li>}
+              {SITE.contact.address && <li>{SITE.contact.address}</li>}
+            </ul>
+          </div>
+        )
+      }
+    </aside>
+  </section>
+</BaseLayout>

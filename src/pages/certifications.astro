@@ -1,0 +1,319 @@
+---
+/**
+ * 证书页。数字全部来自 原始资料/ 与 证书/ 里的原件：
+ *   ISO 9001  Reg 0350525Q30204R1S  2025-07-07 → 2028-07-06
+ *   ISO 14001 Reg 0350525E20142R1S  2025-07-07 → 2028-07-06
+ *   ISO 45001 Reg 0350525S30123R1S  2025-07-07 → 2028-07-06
+ *   中国环境标志 CEC2025ELP00927817（直接接触皮肤）
+ *                CEC2025ELP00927818（非直接接触皮肤）
+ *                2025-05-12 → 2028-05-11
+ * 以上持有人是 青岛千惠绣品有限公司（Qianhui Embroidery），不是集团名。
+ *
+ * 测试报告都是开给供应商/工厂的，不是开给千惠的，页面必须写明：
+ *   16 CFR 1633  SGS Shunde  SDFTS25002706R05_EN  2025-07-24  持证人 Foshan Shunde Weishini
+ *                样品 RAZ-US，99×191×25 cm，无床架；3 件全过
+ *   16 CFR 1633  STC Guangdong  DT26061734  2026-07-01  申请人 Dongguan Haichuan Nonwoven
+ *                样品为绗缝（tuft）床垫，Style 008，无床架；构造字段全空
+ *   OEKO-TEX 100 SH015 258259  TESTEX  2026-03-03 → 2027-03-31  Class I
+ *                持证人 Zhejiang Kaijie，3D 网眼布
+ *   RoHS 2.0     STC Guangdong  DT26050904  2026-05-19  江门衡高 海绵
+ * 任何一条都不能改写成“千惠持有该证书”。
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import { pageTitle } from '@/lib/seo';
+import { breadcrumbSchema } from '@/lib/schema';
+
+const management = [
+  {
+    standard: 'ISO 9001:2015 · GB/T 19001-2016',
+    name: 'Quality management system',
+    reg: '0350525Q30204R1S',
+    issued: '7 Jul 2025',
+    expires: '6 Jul 2028',
+  },
+  {
+    standard: 'ISO 14001:2015 · GB/T 24001-2016',
+    name: 'Environmental management system',
+    reg: '0350525E20142R1S',
+    issued: '7 Jul 2025',
+    expires: '6 Jul 2028',
+  },
+  {
+    standard: 'ISO 45001:2018 · GB/T 45001-2020',
+    name: 'Occupational health and safety',
+    reg: '0350525S30123R1S',
+    issued: '7 Jul 2025',
+    expires: '6 Jul 2028',
+  },
+];
+---
+
+<BaseLayout
+  title={pageTitle('Certifications & Test Reports')}
+  description="ISO 9001, ISO 14001, ISO 45001 and China Environmental Label certificate numbers and expiry dates, plus the 16 CFR 1633, OEKO-TEX and RoHS reports on file, with laboratory and holder named."
+  jsonld={[breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Certifications', path: '/certifications/' }])]}
+>
+  <div class="container-page py-8">
+    <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Certifications' }]} />
+  </div>
+
+  <section class="container-page pb-6">
+    <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">Certifications &amp; test reports</h1>
+    <div class="mt-4 max-w-2xl space-y-4 leading-relaxed text-ink-600">
+      <p>
+        The management-system certificates and the China Environmental Label are held by
+        Qingdao Qianhui Embroidery Co., Ltd., the group company that manufactures bedding at the
+        Jimo site. Each entry gives the registration number and expiry date, so a vendor file can
+        be checked against the original rather than against a logo on a website.
+      </p>
+      <p>
+        The test reports further down the page were issued to the factories and material
+        suppliers we buy from, not to Qianhui. That distinction matters when your file is audited,
+        so we state it on each one. None of the management-system certificates is a product test.
+        For a US mattress the document that matters is a 16 CFR 1633 report, and those are listed
+        with their report numbers.
+      </p>
+    </div>
+  </section>
+
+  <section class="container-page py-6">
+    <h2 class="text-xl font-semibold">Management system certificates</h2>
+    <div class="mt-4 overflow-x-auto">
+      <table class="w-full min-w-[40rem] border-collapse text-sm">
+        <thead>
+          <tr class="border-b border-line text-left text-xs uppercase tracking-wide text-ink-600">
+            <th scope="col" class="py-3 pr-4 font-semibold">Standard</th>
+            <th scope="col" class="py-3 pr-4 font-semibold">Registration no.</th>
+            <th scope="col" class="py-3 pr-4 font-semibold">Issued</th>
+            <th scope="col" class="py-3 font-semibold">Expires</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            management.map((row) => (
+              <tr class="border-b border-line align-top">
+                <td class="py-3 pr-4">
+                  <p class="font-medium text-ink-900">{row.standard}</p>
+                  <p class="mt-0.5 text-xs text-ink-600">{row.name}</p>
+                </td>
+                <td class="py-3 pr-4 font-mono text-xs text-ink-600">{row.reg}</td>
+                <td class="py-3 pr-4 text-ink-600">{row.issued}</td>
+                <td class="py-3 text-ink-600">{row.expires}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+    <div class="mt-4 max-w-3xl space-y-3 text-sm leading-relaxed text-ink-600">
+      <p>
+        Issued by Xingyuan Certification Centre Co., Ltd. (Beijing), accredited by CNAS under
+        C035-M and a member of the IAF multilateral recognition arrangement. The scope on each
+        certificate reads: products and production of beddings, woven garments (cotton
+        overcoats, thermal jackets, cotton wear) and tents, at No. 208 Yanqing First-Class Road,
+        Jimo District, Qingdao.
+      </p>
+      <p>
+        A management system certificate covers how the plant runs. It does not certify the
+        performance of a particular sheet or towel. For that, see the product test section
+        below.
+      </p>
+    </div>
+  </section>
+
+  <section class="container-page py-6">
+    <h2 class="text-xl font-semibold">China Environmental Label</h2>
+    <p class="mt-2 max-w-3xl leading-relaxed text-ink-600">
+      Two certificates under HJ 2546-2016, the textile product standard of the China
+      Environmental Label programme. Both were issued on 12 May 2025 and run to 11 May 2028.
+    </p>
+    <div class="mt-4 grid gap-4 sm:grid-cols-2">
+      <div class="rounded-lg border border-line p-5">
+        <p class="text-sm font-semibold text-ink-900">Direct contact with skin</p>
+        <p class="mt-1 font-mono text-xs text-ink-600">CEC2025ELP00927817</p>
+        <p class="mt-2 text-sm text-ink-600">
+          Covers the bed sheets, duvet covers, pillowcases, face and hand towels, bath towels,
+          bath mats, quilts and blankets listed in the certificate annex, in cotton and
+          polyester constructions.
+        </p>
+      </div>
+      <div class="rounded-lg border border-line p-5">
+        <p class="text-sm font-semibold text-ink-900">Not in direct contact with skin</p>
+        <p class="mt-1 font-mono text-xs text-ink-600">CEC2025ELP00927818</p>
+        <p class="mt-2 text-sm text-ink-600">
+          Covers the products listed in its own annex. Ask us for the annex if your order falls
+          under this category and you need the item list.
+        </p>
+      </div>
+    </div>
+    <p class="mt-4 max-w-3xl text-sm leading-relaxed text-ink-600">
+      Issued by China Environmental United Certification Center (CEC) under authorisation from
+      the Ministry of Ecology and Environment. The annex does not list bathrobes, slippers or
+      mattresses, so do not read this label as covering those lines. If your order includes
+      them, ask what documentation applies.
+    </p>
+  </section>
+
+  <section class="container-page py-6">
+    <h2 class="text-xl font-semibold">Test reports on file</h2>
+    <p class="mt-2 max-w-3xl leading-relaxed text-ink-600">
+      Four reports. Each is current at the time of writing, and each PDF names the plant it was
+      issued to. Ask for the PDF with your quote rather than taking a number from this page. We
+      keep the supplier names out of the page copy, not out of the documents.
+    </p>
+
+    <div class="mt-6 max-w-3xl space-y-6">
+      <div class="rounded-lg border border-line p-6">
+        <h3 class="text-lg font-semibold">16 CFR 1633, pocket-spring mattress</h3>
+        <p class="mt-1 font-mono text-xs text-ink-600">SDFTS25002706R05_EN · SGS Shunde · 24 Jul 2025</p>
+        <p class="mt-3 leading-relaxed text-ink-600">
+          The US open-flame standard. SGS tested a pocket innerspring and foam mattress with a
+          flame-retardant cotton barrier, flame-retardant cloth ticking and no foundation. The
+          sample was 99 × 191 × 25 cm. Three specimens peaked at 31.7, 31.3 and 31.3 kW against
+          a 200 kW limit, and released 2.0, 2.0 and 1.9 MJ in the first ten minutes against a
+          15 MJ limit. All three passed.
+        </p>
+        <p class="mt-3 leading-relaxed text-ink-600">
+          The laboratory holds CPSC identification number 1621. The report was issued to a
+          mattress factory in Foshan, not to Qianhui. It covers one prototype at one size. The
+          sets we sell are produced in China to that build, and with every US order we send a
+          signed statement from the factory that the order follows the tested prototype. That
+          statement, not the report on its own, is what ties a shipment to the test.
+        </p>
+        <p class="mt-3 leading-relaxed text-ink-600">
+          Read it as a prototype test, not a shipment certificate. Its origin and supplier
+          fields describe the sample that was tested. They do not describe the sets in your
+          order.
+        </p>
+        <a href="/guides/16-cfr-1633-hotel-mattress/" class="mt-4 inline-block text-sm font-semibold underline">
+          What 16 CFR 1633 requires
+        </a>
+      </div>
+
+      <div class="rounded-lg border border-line p-6">
+        <h3 class="text-lg font-semibold">16 CFR 1633, barrier material</h3>
+        <p class="mt-1 font-mono text-xs text-ink-600">DT26061734 · STC Guangdong · 1 Jul 2026</p>
+        <p class="mt-3 leading-relaxed text-ink-600">
+          A second open-flame report, this one from the nonwoven barrier supplier. Three tufted
+          mattress sets, style 008, no foundation. Peak heat release was 31.5, 31.2 and 31.7 kW;
+          first ten minutes 2.2, 2.1 and 2.2 MJ. All passed. The laboratory is CNAS accredited
+          under L3428.
+        </p>
+        <p class="mt-3 leading-relaxed text-ink-600">
+          The construction fields on this report are blank, so we treat it as evidence for the
+          barrier, not as the compliance report for a mattress you order. It is the other
+          document we send if your buyer asks what the barrier has been tested with.
+        </p>
+      </div>
+
+      <div class="rounded-lg border border-line p-6">
+        <h3 class="text-lg font-semibold">OEKO-TEX STANDARD 100, 3D mesh fabric</h3>
+        <p class="mt-1 font-mono text-xs text-ink-600">SH015 258259 · TESTEX · 3 Mar 2026 to 31 Mar 2027</p>
+        <p class="mt-3 leading-relaxed text-ink-600">
+          Product class I, the baby-article class, for tri-dimensional knitted 3D mesh fabric in
+          white polyester, Lyocell or viscose, with polyester interlining and backing. The holder
+          is the fabric mill. Class I is the strictest of the four classes.
+        </p>
+        <p class="mt-3 leading-relaxed text-ink-600">
+          The certificate covers the fabric. It does not cover a finished mattress, sheet or
+          towel, and we do not describe our own products as OEKO-TEX certified on the strength of
+          it. If your spec names OEKO-TEX, tell us which component needs to be covered.
+        </p>
+      </div>
+
+      <div class="rounded-lg border border-line p-6">
+        <h3 class="text-lg font-semibold">RoHS 2.0, polyurethane sponge</h3>
+        <p class="mt-1 font-mono text-xs text-ink-600">DT26050904 · STC Guangdong · 19 May 2026</p>
+        <p class="mt-3 leading-relaxed text-ink-600">
+          One sponge sample tested against EU Directive 2011/65/EU and (EU) 2015/863. It passed.
+          The applicant is the foam supplier. Ask for the PDF if you need the name.
+        </p>
+        <p class="mt-3 leading-relaxed text-ink-600">
+          RoHS restricts substances in electrical and electronic equipment. It says nothing about
+          flammability or skin contact, so we do not present it as a textile certification. It is
+          listed here because buyers sometimes ask for it by name.
+        </p>
+      </div>
+
+      <div class="rounded-lg border border-line p-6">
+        <h3 class="text-lg font-semibold">16 CFR 1632, mattresses and pads</h3>
+        <p class="mt-2 leading-relaxed text-ink-600">
+          The cigarette-ignition standard is a separate test with a separate report. It applies
+          to mattresses and to mattress pads, which means a 1633 report does not cover the
+          protectors on the same order.
+        </p>
+        <p class="mt-3 leading-relaxed text-ink-600">
+          There is no 1632 report among the documents above. If your order includes protectors
+          and the spec names 1632, say so at inquiry stage so the test can be arranged before
+          production rather than after the goods are packed.
+        </p>
+      </div>
+
+      <div class="rounded-lg border border-line p-6">
+        <h3 class="text-lg font-semibold">Records for a US import</h3>
+        <p class="mt-2 leading-relaxed text-ink-600">
+          Under 16 CFR 1633 the manufacturer and the importer each keep the test report, the
+          prototype description and a certification on file. On an FOB or CIF shipment the
+          importer of record is normally the buyer or the buyer's customs broker. We are not the
+          US importer of record and we do not act as one.
+        </p>
+        <p class="mt-3 leading-relaxed text-ink-600">
+          We supply what the importer needs to keep: the report, the prototype description and
+          the factory statement that the order matches it. If your compliance team wants a
+          different form of wording, send their template and we will ask the factory to sign it
+          before production.
+        </p>
+      </div>
+
+      <div class="rounded-lg border border-line p-6">
+        <h3 class="text-lg font-semibold">Things we do not claim</h3>
+        <p class="mt-2 leading-relaxed text-ink-600">
+          We hold no OEKO-TEX, GOTS, BS 7177 or EN 597 certificate for the finished sheets, towels
+          or mattresses. The OEKO-TEX certificate above belongs to a fabric mill and covers one
+          3D mesh fabric. If your spec sheet names a standard we do not hold, say so at inquiry
+          stage. We will either quote the testing properly or tell you we cannot meet it, before
+          a container is booked rather than after.
+        </p>
+        <p class="mt-3 leading-relaxed text-ink-600">
+          BS 7177 and EN 597 are the UK and European counterparts to the US rules, and they test
+          differently. A US report says nothing about either.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-lg font-semibold">How to check a certificate</h2>
+        <ol class="mt-3 list-decimal space-y-2 pl-5 leading-relaxed text-ink-600">
+          <li>
+            The holder's name. Our management-system certificates are held by Qianhui Embroidery,
+            not by the group trade name, and the test reports were issued to the manufacturers.
+            Make sure the name matches the entity on your invoice, and know which company a
+            report was actually issued to.
+          </li>
+          <li>The registration number and expiry date, checked against the issuing body.</li>
+          <li>
+            The scope or annex, checked against what you are buying. A certificate for bed linen
+            does not cover slippers, and a report for a sponge does not cover a mattress.
+          </li>
+          <li>
+            For product tests, the laboratory's accreditation, the build described and the size
+            tested. See the four checks in the 16 CFR 1633 guide.
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page py-10">
+    <div class="rounded-lg border border-line bg-surface p-6">
+      <h2 class="text-lg font-semibold">Ask for the originals with the quote</h2>
+      <p class="mt-2 text-sm text-ink-600">
+        Tell us the destination country and the standard on your spec sheet. We will send the
+        certificates and reports that apply, and say plainly which ones we do not have.
+      </p>
+      <a href="/request-a-quote/" class="mt-4 inline-block rounded-md bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white">
+        Request a quote
+      </a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,80 @@
+---
+import CategoryLayout from '@/layouts/CategoryLayout.astro';
+import { BEDDING_SPECS } from '@/data/specs';
+import { categoryTitle } from '@/lib/seo';
+
+const title = categoryTitle('Linens', ['240–384 TC', 'Percale & Sateen']);
+---
+
+<CategoryLayout
+  title={title}
+  description="Hotel linens wholesale: flat sheets, duvet covers and pillowcases from 240 to 384 thread count, cut to US, UK or AU bed sizes. MOQ 50 pcs."
+  h1="Hotel linens"
+  breadcrumb="Hotel Linens"
+  specs={BEDDING_SPECS}
+  images={['hotel-linens-hero']}
+  specLead="Yarn numbers are listed as woven. Thread counts are calculated from them, not claimed."
+  supplierHref="/hotel-bedding-supplier/"
+  supplierLabel="Hotel bedding supplier"
+>
+  <p>
+    The word gets used two ways. In hotel purchasing, linens usually means bed linen and bath
+    linen together: sheets, duvet covers, pillowcases, towels. In our catalogue it is bed linen,
+    with towels and bath mats on their own line. Worth knowing before you send a spec, because a
+    quote for "linens" can mean very different things depending on who is quoting it.
+  </p>
+  <p>
+    We make bed linen in four constructions, from a 240 TC percale to a 353 TC jacquard. All of
+    it is cut for commercial laundry rather than retail display, which mostly means seam
+    allowance and hem width, not a different fabric.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">Hotel bed linen</h2>
+  <p>
+    Hotel bed linen is the bed side of the order: flat sheets, duvet covers and pillowcases.
+    It does not include towels, even when a purchasing list files both under "linen". If you
+    are pricing a full room, price the bath side separately and keep the two sets of sizes
+    apart, because a sheet dimension copied onto a towel list is a mistake nobody catches
+    until the shipment lands.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">Picking a construction</h2>
+  <p>
+    Percale at 240 TC is the workhorse. It handles high-temperature wash cycles and stays crisp.
+    Most four-star properties never move off it.
+  </p>
+  <p>
+    Sateen stripe at around 293 TC is the upgrade that shows on the bed. The woven band reads as
+    more considered than a plain white sheet. The satin face is also the one that snags, so it
+    suits properties with a gentler laundry contract.
+  </p>
+  <p>
+    Mercerized and jacquard cost more and are chosen for a brand standard rather than a washing
+    requirement. Mercerizing adds lustre and colour retention. Jacquard puts the pattern in the
+    weave, so it cannot print off or fade away from the surface.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">What changes the price</h2>
+  <p>
+    Four things, in roughly this order: yarn count, width, colour, and whether the item is a
+    stocked size or a cut-to-order one. White in a standard 200 × 280 cm is the cheapest thing
+    we make. A 260 × 280 cm in a non-white dye adds a dye minimum that can dwarf the difference
+    in fabric cost.
+  </p>
+  <p>
+    If the budget is tight, move the thread count before you move the size. A shorter sheet is a
+    daily problem for housekeeping. A slightly coarser one is not.
+  </p>
+
+  <h2 class="pt-4 text-xl font-semibold text-ink-900">Sizes we cut</h2>
+  <p>
+    Flat sheets come in 200, 230 and 260 × 280 cm, which covers 120, 150 and 180 cm bed widths
+    with enough tuck. Duvet covers run 180 to 250 cm wide at 245 cm long. Pillowcases are
+    58 × 85 cm.
+  </p>
+  <p>
+    US, UK and AU beds do not line up with those numbers, so they get cut to their own layout.
+    Send the sizes you use now, including mattress depth. A 30 cm deep mattress needs a longer
+    drop than a 20 cm one, and that is the single most common place an order goes wrong.
+  </p>
+</CategoryLayout>

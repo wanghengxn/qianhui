@@ -1,0 +1,21 @@
+---
+/**
+ * plan.md §5.1 意图过滤第 1 项：H1 下方第一行必须出现。
+ * 作用是在 3 秒内劝退零售散客，否则混合路线会退化成纯 C 端站。
+ * 文案固定，不要为了"更友好"而软化。
+ */
+interface Props {
+  moq?: string;
+}
+const { moq = 'MOQ 50 pcs' } = Astro.props;
+---
+
+<p
+  class="inline-flex flex-wrap items-center gap-x-3 gap-y-1 rounded-md bg-surface px-3 py-2 text-xs font-medium text-ink-600"
+>
+  <span class="font-semibold text-ink-900">Wholesale only</span>
+  <span aria-hidden="true">·</span>
+  <span>{moq}</span>
+  <span aria-hidden="true">·</span>
+  <span>Trade accounts available</span>
+</p>
